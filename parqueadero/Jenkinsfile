@@ -1,17 +1,17 @@
 pipeline{
 	
 		agent {
-		label 'Slave5'
+			label 'Slave5'
 		}
 	
         
 		triggers {
-        pollSCM('@hourly')
+        	pollSCM('@hourly')
 		}
 	
 		tools {
-		jdk 'JDK8_Centos' 
-		gradle 'Gradle5.0_Centos' 
+			jdk 'JDK8_Centos' 
+			gradle 'Gradle5.0_Centos' 
 		}
 	
 		options {
@@ -20,7 +20,7 @@ pipeline{
 		}
 		
 		environment {
-        PROJECT_PATH_BACK = 'microservicio'
+        PROJECT_PATH_BACK = 'parqueadero'
 		}
 		parameters{
 			booleanParam defaultValue: false, description: 'Push a registry AWS', name: 'pushdeploy'
@@ -30,8 +30,8 @@ pipeline{
 		
 			stage('Checkout') {
 				steps {
-                echo '------------>Checkout desde Git Microservicio<------------'
-                checkout([$class: 'GitSCM', branches: [[name: '${BRANCH_NAME}']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'Microservicio']], gitTool: 'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7fe28495-6f45-4577-8c7b-dce727e78f14', url: '']]])
+                	echo '------------>Checkout - Git parqueadero<------------'
+                	checkout([$class: 'GitSCM', branches: [[name: '${BRANCH_NAME}']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'parqueadero']], gitTool: 'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7fe28495-6f45-4577-8c7b-dce727e78f14', url: '']]])
 				}
 			}
 		
@@ -39,7 +39,7 @@ pipeline{
 		
 			stage('Checkout-comun') {
 			steps {
-                echo '------------>Checkout desde Git Comun<------------'
+                echo '------------>Checkout - Git Comun<------------'
 
                 checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'Comun']], gitTool: 'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7fe28495-6f45-4577-8c7b-dce727e78f14', url: '']]])
 				}
@@ -74,7 +74,7 @@ pipeline{
 			
 			stage('Sonar Analysis'){
 				steps{
-					echo '------------>Analisis de código estático<------------'
+					echo '------------>Analisis de codigo estatico<------------'
 					  withSonarQubeEnv('Sonar') {
                         sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dsonar.projectKey=.${BRANCH_NAME} -Dsonar.projectName=.${BRANCH_NAME} -Dproject.settings=./sonar-project.properties"
                      }
