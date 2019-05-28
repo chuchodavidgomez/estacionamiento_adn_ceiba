@@ -24,7 +24,7 @@ public class ConsultaControladorVehiculo {
 	}
 
 	@GetMapping
-	@ApiOperation("Listar Usuarios")
+	@ApiOperation("Listar vehiculo")
 	public List<DtoVehiculo> listar() {
 		return this.manejadorListarVehiculos.ejecutar();
 	}
