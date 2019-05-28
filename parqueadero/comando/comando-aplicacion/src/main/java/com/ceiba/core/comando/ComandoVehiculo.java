@@ -11,10 +11,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ComandoUsuario{
-
-	private Long id;
-    private String nombre;
-    private String clave;
-    private LocalDateTime fecha;
+public class ComandoVehiculo{
+	private String placa;
+	private String tipo; 
+	private int cilindraje;
+	private String modelo;
+	private String marca;	
+    private LocalDateTime fechaIngreso;
 }

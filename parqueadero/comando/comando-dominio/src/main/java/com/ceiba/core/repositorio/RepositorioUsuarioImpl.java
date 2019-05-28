@@ -2,19 +2,19 @@ package com.ceiba.core.repositorio;
 
 import org.springframework.stereotype.Component;
 
-import com.ceiba.core.modelo.usuario.Usuario;
+import com.ceiba.core.modelo.usuario.Vehiculo;
 
 @Component
 public class RepositorioUsuarioImpl implements RepositorioUsuario {
 
 	@Override
-	public Long crear(Usuario usuario) {
+	public Long crear(Vehiculo usuario) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void actualizar(Usuario usuario) {
+	public void actualizar(Vehiculo usuario) {
 		// TODO Auto-generated method stub
 
 	}
@@ -32,7 +32,7 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 	}
 
 	@Override
-	public boolean existeExcluyendoId(Long id, String nombre) {
+	public boolean existeExcluyendoId(String id, String nombre) {
 		// TODO Auto-generated method stub
 		return false;
 	}

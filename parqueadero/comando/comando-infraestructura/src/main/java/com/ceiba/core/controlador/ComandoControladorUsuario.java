@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ceiba.core.aplicacion.ComandoRespuesta;
-import com.ceiba.core.comando.ComandoUsuario;
+import com.ceiba.core.comando.ComandoVehiculo;
 import com.ceiba.core.manejador.ManejadorActualizarUsuario;
 import com.ceiba.core.manejador.ManejadorCrearUsuario;
 import com.ceiba.core.manejador.ManejadorEliminarUsuario;
@@ -37,7 +37,7 @@ public class ComandoControladorUsuario {
 
 	@PostMapping
 	@ApiOperation("Crear Usuario")
-	public ComandoRespuesta<Long> crear(@RequestBody ComandoUsuario comandoUsuario) {
+	public ComandoRespuesta<Long> crear(@RequestBody ComandoVehiculo comandoUsuario) {
 		return manejadorCrearUsuario.ejecutar(comandoUsuario);
 	}
 
@@ -49,7 +49,7 @@ public class ComandoControladorUsuario {
 	
 	@PutMapping(value="/{id}")
 	@ApiOperation("Actualizar Usuario")
-	public void actualizar(@RequestBody ComandoUsuario comandoUsuario,@PathVariable Long id) {
+	public void actualizar(@RequestBody ComandoVehiculo comandoUsuario,@PathVariable Long id) {
 		comandoUsuario.setId(id);
 		manejadorActualizarUsuario.ejecutar(comandoUsuario);
 	}

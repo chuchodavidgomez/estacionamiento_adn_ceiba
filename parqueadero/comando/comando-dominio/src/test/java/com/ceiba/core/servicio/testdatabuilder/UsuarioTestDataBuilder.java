@@ -2,7 +2,7 @@ package com.ceiba.core.servicio.testdatabuilder;
 
 import java.time.LocalDateTime;
 
-import com.ceiba.core.modelo.usuario.Usuario;
+import com.ceiba.core.modelo.usuario.Vehiculo;
 
 public class UsuarioTestDataBuilder {
 
@@ -27,7 +27,7 @@ public class UsuarioTestDataBuilder {
     	return this;
     }
     
-    public Usuario build() {
-    	return new Usuario(id,nombreUsuario, clave,fecha);
+    public Vehiculo build() {
+    	return new Vehiculo(id,nombreUsuario, clave,fecha);
     }
 }

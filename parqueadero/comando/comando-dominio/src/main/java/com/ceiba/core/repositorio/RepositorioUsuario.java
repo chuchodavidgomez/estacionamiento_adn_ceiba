@@ -1,6 +1,6 @@
 package com.ceiba.core.repositorio;
 
-import com.ceiba.core.modelo.usuario.Usuario;
+import com.ceiba.core.modelo.usuario.Vehiculo;
 
 public interface RepositorioUsuario {
 	/**
@@ -8,13 +8,13 @@ public interface RepositorioUsuario {
 	 * @param usuario
 	 * @return el id generado
 	 */
-    Long crear(Usuario usuario);
+    Long crear(Vehiculo usuario);
     
     /**
 	 * Permite actualizar un usuario
 	 * @param usuario
 	 */
-    void actualizar(Usuario usuario);
+    void actualizar(Vehiculo usuario);
     
     /**
      * Permite eliminar un usuario
@@ -34,6 +34,6 @@ public interface RepositorioUsuario {
      * @param nombre
      * @return si existe o no
      */
-    boolean existeExcluyendoId(Long id,String nombre);
+    boolean existeExcluyendoId(String id,String nombre);
 
 }

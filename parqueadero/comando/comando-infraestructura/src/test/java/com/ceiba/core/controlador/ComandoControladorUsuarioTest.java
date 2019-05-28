@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.ceiba.core.ApplicationMock;
-import com.ceiba.core.comando.ComandoUsuario;
+import com.ceiba.core.comando.ComandoVehiculo;
 import com.ceiba.core.testdatabuilder.ComandoUsuarioTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -36,7 +36,7 @@ public class ComandoControladorUsuarioTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
+        ComandoVehiculo usuario = new ComandoUsuarioTestDataBuilder().build();
 
         // act - assert
         mocMvc.perform(post("/usuarios")
@@ -50,7 +50,7 @@ public class ComandoControladorUsuarioTest {
     public void actualizar() throws Exception{
         // arrange
     	Long id = 1L;
-        ComandoUsuario usuario = new ComandoUsuarioTestDataBuilder().build();
+        ComandoVehiculo usuario = new ComandoUsuarioTestDataBuilder().build();
 
         // act - assert
         mocMvc.perform(put("/usuarios/{id}",id)
