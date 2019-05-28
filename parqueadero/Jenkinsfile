@@ -52,7 +52,7 @@ pipeline{
 			stage('Unit Test'){//listo
 				steps{
 					echo "------------>Unit Tests<------------"
-					sh 'gradle --b ./build.gradle test'
+					sh 'gradle --b ./parqueadero/build.gradle test'
 				}
 			}
 			
@@ -68,7 +68,7 @@ pipeline{
 			stage('Build') {//listo
 				steps{
 					echo "------------>Build<------------"
-					sh 'gradle --b ./build.gradle build -x test'
+					sh 'gradle --b ./parqueadero/build.gradle build -x test'
 				}
 			}
 				
