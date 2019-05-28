@@ -4,13 +4,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.ceiba.core.modelo.DtoUsuario;
+import com.ceiba.core.modelo.DtoVehiculo;
 
 @Component
-public class DaoUsuarioImplementation implements DaoUsuario {
+public class DaoVehiculoImplementation implements DaoVehiculo {
 
 	@Override
-	public List<DtoUsuario> listar() {
+	public List<DtoVehiculo> listar() {
 		// TODO Auto-generated method stub
 		return null;
 	}

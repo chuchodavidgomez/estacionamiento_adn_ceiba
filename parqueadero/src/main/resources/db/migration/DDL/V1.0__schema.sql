@@ -1,9 +1,11 @@
-create table usuario (
-  id int(11) not null auto_increment,
-  nombre varchar(100) not null,
-  clave varchar(45) not null,
-  fecha_creacion datetime null,
-  primary key (id)
+create table vehiculo (
+	placa varchar(100) not null,
+	tipo varchar(100) not null,
+	cilindraje int(11) not null,
+	modelo varchar(100) not null,
+	marca varchar(100) not null,
+	fechaIngreso datetime null,
+  	primary key (placa)
 );
 
-insert into usuario (nombre,clave) values ('jesus','123');
+insert into vehiculo(placa,tipo,cilindraje,modelo,marca,fechaIngreso) values('aaa000','carro',0,'6','renault',now());

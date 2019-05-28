@@ -2,14 +2,14 @@ package com.ceiba.core.dao;
 
 import java.util.List;
 
-import com.ceiba.core.modelo.DtoUsuario;
+import com.ceiba.core.modelo.DtoVehiculo;
 
-public interface DaoUsuario {
+public interface DaoVehiculo {
 
 	/**
 	 * Permite listar usuarios
 	 * @return los usuarios
 	 */
-	List<DtoUsuario> listar();
+	List<DtoVehiculo> listar();
 
 }

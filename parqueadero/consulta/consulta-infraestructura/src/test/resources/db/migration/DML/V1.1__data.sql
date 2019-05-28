@@ -1,1 +1,1 @@
-insert into usuario(nombre,clave,fecha_creacion) values('test','1234',now())
+insert into vehiculo(placa,tipo,cilindraje,modelo,marca,fechaIngreso) values('aaa111','carro',0,'6','renault',now())

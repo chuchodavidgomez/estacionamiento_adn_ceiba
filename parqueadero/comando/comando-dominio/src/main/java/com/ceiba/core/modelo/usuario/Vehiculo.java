@@ -14,7 +14,7 @@ public class Vehiculo {
 	private static final String SE_DEBE_INGRESAR_EL_MODELO = "Se debe ingresar el modelo";
 	private static final String SE_DEBE_INGRESAR_LA_MARCA = "Se debe ingresar la marca";
 	
-	private static final int LONGITUD_PLACA = 4;
+	private static final int LONGITUD_PLACA = 6;
     
 	private String placa;
 	private String tipo; 

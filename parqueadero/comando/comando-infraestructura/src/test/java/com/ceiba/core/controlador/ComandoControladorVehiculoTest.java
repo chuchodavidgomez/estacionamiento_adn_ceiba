@@ -1,5 +1,6 @@
 package com.ceiba.core.controlador;
 
+//pruebas del api rest
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -17,13 +18,13 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.ceiba.core.ApplicationMock;
 import com.ceiba.core.comando.ComandoVehiculo;
-import com.ceiba.core.testdatabuilder.ComandoUsuarioTestDataBuilder;
+import com.ceiba.core.testdatabuilder.ComandoVehiculoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes=ApplicationMock.class)
-@WebMvcTest(ComandoControladorUsuario.class)
-public class ComandoControladorUsuarioTest {
+@WebMvcTest(ComandoControladorVehiculo.class)
+public class ComandoControladorVehiculoTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -36,12 +37,12 @@ public class ComandoControladorUsuarioTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoVehiculo usuario = new ComandoUsuarioTestDataBuilder().build();
+        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(post("/usuarios")
+        mocMvc.perform(post("/vehiculos")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(objectMapper.writeValueAsString(usuario)))
+                .content(objectMapper.writeValueAsString(vehiculo)))
         		.andExpect(status().isOk())
         		.andExpect(content().json("{'valor': 1}"));
     }
@@ -49,23 +50,23 @@ public class ComandoControladorUsuarioTest {
     @Test
     public void actualizar() throws Exception{
         // arrange
-    	Long id = 1L;
-        ComandoVehiculo usuario = new ComandoUsuarioTestDataBuilder().build();
+    	String placa = "abc123";
+        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/usuarios/{id}",id)
+        mocMvc.perform(put("/usuarios/{placa}",placa)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(objectMapper.writeValueAsString(usuario)))
+                .content(objectMapper.writeValueAsString(vehiculo)))
         		.andExpect(status().isOk());
     }
     
     @Test
     public void eliminar() throws Exception {
         // arrange
-        Long id = 1L;
+        String placa = "abc123";
 
         // act - assert
-        mocMvc.perform(delete("/usuarios/{id}",id)
+        mocMvc.perform(delete("/usuarios/{placa}",placa)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

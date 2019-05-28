@@ -5,12 +5,12 @@ import org.springframework.stereotype.Component;
 import com.ceiba.core.modelo.usuario.Vehiculo;
 
 @Component
-public class RepositorioUsuarioImpl implements RepositorioUsuario {
+public class RepositorioVehiculoImpl implements RepositorioVehiculo {
 
 	@Override
-	public Long crear(Vehiculo usuario) {
+	public void crear(Vehiculo usuario) {
 		// TODO Auto-generated method stub
-		return null;
+	
 	}
 
 	@Override
@@ -20,7 +20,7 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 	}
 
 	@Override
-	public void eliminar(Long id) {
+	public void eliminar(String placa) {
 		// TODO Auto-generated method stub
 
 	}
@@ -32,7 +32,7 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 	}
 
 	@Override
-	public boolean existeExcluyendoId(String id, String nombre) {
+	public boolean existeExcluyendoPlaca(String placa, String marca) {
 		// TODO Auto-generated method stub
 		return false;
 	}
