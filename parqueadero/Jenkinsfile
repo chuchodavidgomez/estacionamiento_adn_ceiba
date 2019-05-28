@@ -11,11 +11,11 @@ pipeline{
 	
 		tools {
 			jdk 'JDK8_Centos' 
-			gradle 'Gradle5.0_Centos' 
+			gradle 'Gradle5.4_Centos' 
 		}
 	
 		options {
-			buildDiscarder(logRotator(numToKeepStr: '5'))
+			buildDiscarder(logRotator(numToKeepStr: '3'))
 			disableConcurrentBuilds()
 		}
 					
@@ -24,7 +24,8 @@ pipeline{
 			stage('Checkout') {
 				steps {
                 	echo '------------>Checkout - Git parqueadero<------------'
-                	checkout([$class: 'GitSCM', branches: [[name: '${BRANCH_NAME}']], 
+                	checkout([$class: 'GitSCM', 
+                	branches: [[name: '*/master']], 
                 	doGenerateSubmoduleConfigurations: false, 
                 	extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'parqueadero']], 
                 	gitTool: 'Git_Centos', submoduleCfg: [], 
@@ -38,20 +39,14 @@ pipeline{
 				steps {
                 	echo '------------>Checkout - Git Comun<------------'
 
-                	checkout([$class: 'GitSCM', branches: [[name: 'master']], 
+                	checkout([$class: 'GitSCM', 
+                	branches: [[name: '*/master']], 
                 	doGenerateSubmoduleConfigurations: false, 
                 	extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'Comun']], 
                 	gitTool: 'Git_Centos', submoduleCfg: [], 
                 	userRemoteConfigs: [[credentialsId: 'GitHub_chuchodavidgomez', url: 'https://github.com/chuchodavidgomez/estacionamiento_adn_ceiba']]])
 				}
-			}
-		
-			stage('Build') {//listo
-				steps{
-					echo "------------>Build<------------"
-					sh 'gradle --b ./build.gradle build -x test'
-				}
-			}
+			}				
 			
 			stage('Unit Test'){//listo
 				steps{
@@ -60,7 +55,7 @@ pipeline{
 				}
 			}
 			
-			stage('Sonar Analysis'){//listo
+			stage('Static Code Analysis'){//listo
 				steps{
 					echo '------------>Analisis de codigo estatico<------------'
 					  withSonarQubeEnv('Sonar') {
@@ -68,14 +63,22 @@ pipeline{
 					  }
 				}
 			}
+			
+			stage('Build') {//listo
+				steps{
+					echo "------------>Build<------------"
+					sh 'gradle --b ./build.gradle build -x test'
+				}
+			}
 				
 		}
+		
 		post {
 			failure {
 				echo "----------fallo-----------"
 				mail(to: 'jesus.gomez@ceiba.com.co',
 				subject: "fallo Pipeline:${currentBuild.fullDisplayName}",
-				body:"Build failed in Jenkins: Project: ${env.JOB_NAME} Build /n Number: ${env.BUILD_NUMBER} URL de build: ${env.BUILD_NUMBER}/n/nPlease go to ${env.BUILD_URL} and verify the build")				
+				body:"Something is wrongwith ${env.BUILD_URL}")				
 			}
 			
 			success {
