@@ -1,5 +1,3 @@
-update usuario
-set nombre = :nombre,
-	clave = :clave,
-	fecha_creacion = :fechaCreacion
-where id = :id
+update vehiculo
+set placa = :placa, tipo = :tipo, cilindraje = :cilindraje, modelo = :modelo, marca = :marca, fechaIngreso = :fechaIngreso)
+where placa = :placa

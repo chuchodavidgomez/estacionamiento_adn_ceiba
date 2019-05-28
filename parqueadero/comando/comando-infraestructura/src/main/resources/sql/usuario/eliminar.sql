@@ -1,3 +1,3 @@
 delete 
-from usuario
-where id = :id
+from vehiculo
+where placa = :placa

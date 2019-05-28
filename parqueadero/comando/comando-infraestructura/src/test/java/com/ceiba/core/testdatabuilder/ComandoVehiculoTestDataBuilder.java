@@ -14,7 +14,7 @@ public class ComandoVehiculoTestDataBuilder {
     private LocalDateTime fechaIngreso;
     
     public ComandoVehiculoTestDataBuilder() {
-    	placa = "abc123";
+    	placa = "cdf457";
 		tipo = "moto";
 		cilindraje = 500;
 		modelo = "y5";

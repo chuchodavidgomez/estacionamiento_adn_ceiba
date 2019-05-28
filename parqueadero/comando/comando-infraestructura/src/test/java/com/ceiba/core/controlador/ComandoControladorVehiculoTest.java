@@ -43,8 +43,7 @@ public class ComandoControladorVehiculoTest {
         mocMvc.perform(post("/vehiculos")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(vehiculo)))
-        		.andExpect(status().isOk())
-        		.andExpect(content().json("{'valor': 1}"));
+        		.andExpect(status().isOk());
     }
     
     @Test
@@ -54,7 +53,7 @@ public class ComandoControladorVehiculoTest {
         ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/usuarios/{placa}",placa)
+        mocMvc.perform(put("/vehiculos/{placa}",placa)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(vehiculo)))
         		.andExpect(status().isOk());
@@ -66,7 +65,7 @@ public class ComandoControladorVehiculoTest {
         String placa = "abc123";
 
         // act - assert
-        mocMvc.perform(delete("/usuarios/{placa}",placa)
+        mocMvc.perform(delete("/vehiculos/{placa}",placa)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
