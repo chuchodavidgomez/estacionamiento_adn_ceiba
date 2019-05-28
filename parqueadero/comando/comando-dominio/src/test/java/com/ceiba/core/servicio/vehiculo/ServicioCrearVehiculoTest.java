@@ -16,9 +16,9 @@ public class ServicioCrearVehiculoTest {
 	@Test
     public void validarPlacaLongitud6Test() {
         // arrange
-    	VehiculoTestDataBuilder usuarioTestDataBuilder = new VehiculoTestDataBuilder().conPlaca("abc1245");
+    	VehiculoTestDataBuilder usuarioTestDataBuilder = new VehiculoTestDataBuilder().conPlaca("abc1111");
         // act - assert
-        BasePrueba.assertThrows(() -> usuarioTestDataBuilder.build(), ExcepcionLongitudValor.class, "La clave debe tener una longitud igual a 6");
+        BasePrueba.assertThrows(() -> usuarioTestDataBuilder.build(), ExcepcionLongitudValor.class, "La placa debe tener una longitud igual a 6");
     }
 	
 	@Test

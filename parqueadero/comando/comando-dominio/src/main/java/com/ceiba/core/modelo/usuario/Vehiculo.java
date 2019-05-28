@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class Vehiculo {
 	
     private static final String SE_DEBE_INGRESAR_LA_FECHA_INGRESO = "Se debe ingresar la fecha de ingreso";
-	private static final String LA_PLACA_DEBE_TENER_LONGITUD_IGUAL = "La clave debe tener una longitud igual a %s";
+	private static final String LA_PLACA_DEBE_TENER_LONGITUD_IGUAL = "La placa debe tener una longitud igual a %s";
 	private static final String SE_DEBE_INGRESAR_EL_TIPO = "Se debe ingresar el tipo";
 	private static final String SE_DEBE_INGRESAR_LA_PLACA = "Se debe ingresar la placa";
 	private static final String SE_DEBE_INGRESAR_EL_MODELO = "Se debe ingresar el modelo";
