@@ -1,7 +1,7 @@
 pipeline{
 	
 		agent {
-			label 'Slave5_Induccion'
+			label 'Slave5_Centos'
 		}
 	
         
@@ -18,14 +18,7 @@ pipeline{
 			buildDiscarder(logRotator(numToKeepStr: '5'))
 			disableConcurrentBuilds()
 		}
-		
-		environment {
-        PROJECT_PATH_BACK = 'parqueadero'
-		}
-		parameters{
-			booleanParam defaultValue: false, description: 'Push a registry AWS', name: 'pushdeploy'
-		}
-		
+					
 		stages{
 		
 			stage('Checkout') {
