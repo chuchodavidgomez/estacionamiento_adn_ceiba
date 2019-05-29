@@ -28,7 +28,7 @@ buildscript {
 	}
 }
 
-
+apply plugin: 'jococo'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'

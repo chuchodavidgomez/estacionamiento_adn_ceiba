@@ -33,9 +33,7 @@ pipeline{
                 	userRemoteConfigs: [[credentialsId: 'GitHub_chuchodavidgomez', url: 'https://github.com/chuchodavidgomez/estacionamiento_adn_ceiba']]])
 				}
 			}
-		
-		
-		
+					
 			stage('Checkout-comun') {
 				steps {
                 	echo '------------>Checkout - Git Comun<------------'
