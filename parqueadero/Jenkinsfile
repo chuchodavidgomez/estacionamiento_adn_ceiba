@@ -21,38 +21,38 @@ pipeline{
 		}	
 					
 		stages{
-						
+				/*		
 			stage('Checkout') {
 				steps {
                 	echo '------------>Checkout - Git parqueadero<------------'
                 	checkout([$class: 'GitSCM', 
-                	branches: [[name: '*/master']], 
+                	branches: [[name: '*//*master']], 
                 	doGenerateSubmoduleConfigurations: false, 
                 	extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'parqueadero']], 
                 	gitTool: 'Git_Centos', submoduleCfg: [], 
                 	userRemoteConfigs: [[credentialsId: 'GitHub_chuchodavidgomez', url: 'https://github.com/chuchodavidgomez/estacionamiento_adn_ceiba']]])
 				}
-			}
-					
+			}*/
+			/*		
 			stage('Checkout-comun') {
 				steps {
                 	echo '------------>Checkout - Git Comun<------------'
 
                 	checkout([$class: 'GitSCM', 
-                	branches: [[name: '*/master']], 
+                	branches: [[name: '*//*master']], 
                 	doGenerateSubmoduleConfigurations: false, 
                 	extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'Comun']], 
                 	gitTool: 'Git_Centos', submoduleCfg: [], 
                 	userRemoteConfigs: [[credentialsId: 'GitHub_chuchodavidgomez', url: 'https://github.com/chuchodavidgomez/estacionamiento_adn_ceiba']]])
 				}
-			}				
+			}	*/			
 			
-			stage('Unit Test'){//listo
+		/*	stage('Unit Test'){//listo
 				steps{
 					echo "------------>Unit Tests<------------"
 					sh 'gradle --b ./parqueadero/build.gradle build'
 				}
-			}
+			}*/
 			
 			stage('Static Code Analysis'){//listo
 				steps{
@@ -65,12 +65,12 @@ pipeline{
 				}
 			}
 			
-			stage('Build') {//listo
+		/*	stage('Build') {//listo
 				steps{
 					echo "------------>Build<------------"
 					sh 'gradle --b ./parqueadero/build.gradle build -x test'
 				}
-			}
+			}*/
 				
 		}
 		
