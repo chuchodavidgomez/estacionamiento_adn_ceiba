@@ -17,3 +17,13 @@ dependencies {
   	testImplementation project(':comun:comun-test')	
 	implementation project(':comun:comun-dominio')
 }
+
+test {
+    jacoco {
+        append = false
+        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")        
+    }
+    reports.junitXml.destination = file("$buildDir/jacoco/test-results")
+}
+jacocoTestReport.dependsOn(test)
+jar.dependsOn(jacocoTestReport)
