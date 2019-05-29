@@ -40,7 +40,6 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
-	jcenter()
 }
 
 dependencies {
@@ -61,8 +60,14 @@ dependencies {
 }
 
 test {
-  useJUnitPlatform()
+    jacoco {
+        append = false
+        destinationFile = file("/jacoco/jacocoTest.exec")        
+    }
+    reports.junitXml.destination = file("jacoco/test-results")
 }
+jacocoTestReport.dependsOn(test)
+jar.dependsOn(jacocoTestReport)
 
 bootJar {
 	mainClassName = 'com.ceiba.core.Application'
