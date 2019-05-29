@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.ceiba.core.aplicacion.manejador.ManejadorComando;
 import com.ceiba.core.comando.ComandoVehiculo;
 import com.ceiba.core.fabrica.FabricaVehiculo;
-import com.ceiba.core.modelo.usuario.Vehiculo;
+import com.ceiba.core.modelo.vehiculo.Vehiculo;
 import com.ceiba.core.servicio.vehiculo.ServicioActualizarVehiculo;
 
 @Component

@@ -2,7 +2,7 @@ package com.ceiba.core.servicio.testdatabuilder;
 
 import java.time.LocalDateTime;
 
-import com.ceiba.core.modelo.usuario.Vehiculo;
+import com.ceiba.core.modelo.vehiculo.Vehiculo;
 
 public class VehiculoTestDataBuilder {
 

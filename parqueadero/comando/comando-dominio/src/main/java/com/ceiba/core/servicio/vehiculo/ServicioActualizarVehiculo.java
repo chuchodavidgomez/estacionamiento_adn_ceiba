@@ -1,7 +1,7 @@
 package com.ceiba.core.servicio.vehiculo;
 
 import com.ceiba.core.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.core.modelo.usuario.Vehiculo;
+import com.ceiba.core.modelo.vehiculo.Vehiculo;
 import com.ceiba.core.repositorio.RepositorioVehiculo;
 
 public class ServicioActualizarVehiculo {

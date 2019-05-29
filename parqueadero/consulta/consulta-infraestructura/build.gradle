@@ -22,7 +22,7 @@ dependencies {
 	
 	implementation project(':comun:comun-infraestructura')
 }
-
+/*
 test {
     jacoco {
         append = false
@@ -31,4 +31,4 @@ test {
     reports.junitXml.destination = file("$buildDir/jacoco/test-results")
 }
 jacocoTestReport.dependsOn(test)
-jar.dependsOn(jacocoTestReport)
+jar.dependsOn(jacocoTestReport)*/

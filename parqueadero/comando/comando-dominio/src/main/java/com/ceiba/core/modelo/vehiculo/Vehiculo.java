@@ -1,4 +1,4 @@
-package com.ceiba.core.modelo.usuario;
+package com.ceiba.core.modelo.vehiculo;
 
 import static com.ceiba.core.dominio.ValidadorArgumento.validarLongitud;
 import static com.ceiba.core.dominio.ValidadorArgumento.validarObligatorio;

@@ -32,7 +32,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-//apply plugin: 'jacoco'
 
 group = 'com.ceiba'
 version = '0.0.1-SNAPSHOT'
@@ -57,66 +56,6 @@ dependencies {
 	implementation project(':comando:comando-infraestructura')
 	implementation project(':comun:comun-infraestructura')
 }
-/*
-test {
-  testLogging {
-    exceptionFormat = 'full'
-    events = ["passed", "failed", "skipped"]
-  }
-  finalizedBy jacocoTestReport
-}
-
-jacocoTestReport{
-  group = "build"
-  reports {
-    xml.enabled false
-    csv.enabled false
-    html.destination file("${buildDir}/jacocoHtml")
-  }
- } 
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        html.enabled true
-        csv.enabled true
-    }
-}
-
-jacoco {
-    toolVersion = "0.8.1"
-    reportsDir = file("$buildDir/customJacocoReportDir")
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled false
-        html.destination file("$buildDir/jacocoHtml")
-    }
-}
-
-test {
-    jacoco {
-        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
-        classDumpDir = file("$buildDir/jacoco/classpathdumps")
-    }
-}
-
-
-test {
-    jacoco {
-        append = false
-        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")        
-    }
-    reports.junitXml.destination = file("$buildDir/jacoco/test-results")
-}
-jacocoTestReport.dependsOn(test)
-jar.dependsOn(jacocoTestReport)
-
-test {
-  useJUnitPlatform()
-}*/
 
 bootJar {
 	mainClassName = 'com.ceiba.core.Application'

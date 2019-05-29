@@ -2,7 +2,7 @@ package com.ceiba.core.repositorio;
 
 import org.springframework.stereotype.Component;
 
-import com.ceiba.core.modelo.usuario.Vehiculo;
+import com.ceiba.core.modelo.vehiculo.Vehiculo;
 
 @Component
 public class RepositorioVehiculoImpl implements RepositorioVehiculo {

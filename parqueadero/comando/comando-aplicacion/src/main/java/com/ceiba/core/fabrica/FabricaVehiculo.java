@@ -3,7 +3,7 @@ package com.ceiba.core.fabrica;
 import org.springframework.stereotype.Component;
 
 import com.ceiba.core.comando.ComandoVehiculo;
-import com.ceiba.core.modelo.usuario.Vehiculo;
+import com.ceiba.core.modelo.vehiculo.Vehiculo;
 
 @Component
 public class FabricaVehiculo {

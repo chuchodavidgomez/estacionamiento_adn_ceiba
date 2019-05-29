@@ -5,7 +5,7 @@ import org.mockito.Mockito;
 
 import com.ceiba.core.BasePrueba;
 import com.ceiba.core.dominio.excepcion.ExcepcionDuplicidad;
-import com.ceiba.core.modelo.usuario.Vehiculo;
+import com.ceiba.core.modelo.vehiculo.Vehiculo;
 import com.ceiba.core.repositorio.RepositorioVehiculo;
 import com.ceiba.core.servicio.testdatabuilder.VehiculoTestDataBuilder;
 import com.ceiba.core.servicio.vehiculo.ServicioActualizarVehiculo;
