@@ -22,6 +22,15 @@ pipeline{
 					
 		stages{
 		
+			stage('Static Code Analysis'){//listo
+				steps{
+					echo '------------>Analisis de codigo estatico<------------'
+					  withSonarQubeEnv('Sonar') {
+					  	sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+					  }
+				}
+			}
+		
 			stage('Checkout') {
 				steps {
                 	echo '------------>Checkout - Git parqueadero<------------'
@@ -56,14 +65,7 @@ pipeline{
 				}
 			}
 			
-			stage('Static Code Analysis'){//listo
-				steps{
-					echo '------------>Analisis de codigo estatico<------------'
-					  withSonarQubeEnv('Sonar') {
-					  	sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
-					  }
-				}
-			}
+			
 			
 			stage('Build') {//listo
 				steps{
