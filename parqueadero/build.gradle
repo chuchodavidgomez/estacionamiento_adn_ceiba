@@ -58,7 +58,7 @@ dependencies {
 
 	
 }
-
+/*
 jacoco {
     toolVersion = "0.8.1"
     reportsDir = file("/customJacocoReportDir")
@@ -81,7 +81,7 @@ test {
 }
 jacocoTestReport.dependsOn(test)
 jar.dependsOn(jacocoTestReport)
-
+*/
 bootJar {
 	mainClassName = 'com.ceiba.core.Application'
     baseName = 'parqueadero'
