@@ -59,6 +59,10 @@ dependencies {
 	
 }
 
+test {
+  useJUnitPlatform()
+}
+
 bootJar {
 	mainClassName = 'com.ceiba.core.Application'
     baseName = 'parqueadero'
