@@ -50,7 +50,7 @@ pipeline{
 			stage('Build') {//listo
 				steps{
 					echo "------------>Build<------------"
-					sh 'gradle --b ./parqueadero/build.gradle build -x test'
+					sh 'gradle --b ./parqueadero/comando/comando-dominio/build.gradle build -x test'
 				}
 			}
 			
