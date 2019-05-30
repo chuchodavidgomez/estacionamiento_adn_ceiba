@@ -4,7 +4,7 @@ import static com.ceiba.core.dominio.ValidadorArgumento.validarObligatorio;
 
 import java.time.LocalDateTime;
 
-public class historial {
+public class Historial {
 	
 	private static final String SE_DEBE_INGRESAR_LA_PLACA = "Se debe ingresar la placa";
 	
@@ -14,7 +14,7 @@ public class historial {
 	private LocalDateTime fechaSalida;
 	private double pago;
 	
-	public historial(Long id, String placa, LocalDateTime fechaIngreso, LocalDateTime fechaSalida, double pago) {
+	public Historial(Long id, String placa, LocalDateTime fechaIngreso, LocalDateTime fechaSalida, double pago) {
 		validarObligatorio(placa, SE_DEBE_INGRESAR_LA_PLACA);
 		this.id = id;
 		this.placa = placa;
