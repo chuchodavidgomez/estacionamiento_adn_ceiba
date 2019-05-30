@@ -23,7 +23,7 @@ dependencies {
 	implementation project(':comun:comun-infraestructura')
 	implementation project(':comun:comun-aplicacion')
 }
-/*
+
 test {
     jacoco {
         append = false
@@ -33,4 +33,3 @@ test {
 }
 jacocoTestReport.dependsOn(test)
 jar.dependsOn(jacocoTestReport)
-*/

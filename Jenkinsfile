@@ -57,7 +57,8 @@ pipeline{
 			stage('Unit Test'){//listo
 				steps{
 					echo "------------>Unit Tests<------------"
-					sh 'gradle --b ./parqueadero/build.gradle build'
+					sh 'gradle --b ./parqueadero/comando/comando-dominio/build.gradle build'
+					sh 'gradle --b ./parqueadero/comando/comando-dominio/build.gradle jacocoTestReport'
 				}
 			}
 			

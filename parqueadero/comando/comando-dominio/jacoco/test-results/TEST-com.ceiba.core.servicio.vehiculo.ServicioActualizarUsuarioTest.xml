@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ceiba.core.servicio.vehiculo.ServicioActualizarUsuarioTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-05-30T20:00:23" hostname="JESUS-GOMEZ" time="0.444">
+  <properties/>
+  <testcase name="validarUsuarioExistenciaPreviaTest" classname="com.ceiba.core.servicio.vehiculo.ServicioActualizarUsuarioTest" time="0.444"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
