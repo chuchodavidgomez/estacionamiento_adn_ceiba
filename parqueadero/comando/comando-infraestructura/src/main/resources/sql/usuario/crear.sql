@@ -1,1 +1,0 @@
-insert into vehiculo(placa,tipo,cilindraje,modelo,marca,fechaIngreso) values(:placa,:tipo,:cilindraje,:modelo,:marca,:fechaIngreso)

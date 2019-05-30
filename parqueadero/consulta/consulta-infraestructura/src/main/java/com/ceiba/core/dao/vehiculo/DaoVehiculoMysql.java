@@ -1,4 +1,4 @@
-package com.ceiba.core.dao.usuario;
+package com.ceiba.core.dao.vehiculo;
 
 import java.util.List;
 

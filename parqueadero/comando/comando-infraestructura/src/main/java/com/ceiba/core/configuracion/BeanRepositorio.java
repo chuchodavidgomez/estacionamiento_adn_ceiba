@@ -10,7 +10,7 @@ import com.ceiba.core.repositorio.RepositorioVehiculoMysql;
 @Configuration
 public class BeanRepositorio {
 	@Bean
-	public RepositorioVehiculo repositorioUsuario(CustomNamedParameterJdbcTemplate repositorioGenerico) {
+	public RepositorioVehiculo repositorioVehiculo(CustomNamedParameterJdbcTemplate repositorioGenerico) {
 		return new RepositorioVehiculoMysql(repositorioGenerico);
 	}
 }

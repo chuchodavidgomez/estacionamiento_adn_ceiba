@@ -22,11 +22,18 @@ public class CustomNamedParameterJdbcTemplate {
 		this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
 	}
 	
+	/*En caso de que devolviera algo el crear
 	public Long crear(Object object,String sql) {
 		MapSqlParameterSource paramSource = crearParametros(object);
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		this.namedParameterJdbcTemplate.update(sql, paramSource,keyHolder);
 		return keyHolder.getKey().longValue();
+	}*/
+	
+	public void crear(Object object,String sql) {
+		MapSqlParameterSource paramSource = crearParametros(object);
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		this.namedParameterJdbcTemplate.update(sql, paramSource,keyHolder);		
 	}
 	
 	public void actualizar(Object object,String sql) {

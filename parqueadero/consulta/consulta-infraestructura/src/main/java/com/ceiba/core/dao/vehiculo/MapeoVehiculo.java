@@ -1,4 +1,4 @@
-package com.ceiba.core.dao.usuario;
+package com.ceiba.core.dao.vehiculo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +19,7 @@ public class MapeoVehiculo implements RowMapper<DtoVehiculo>,MapperResult {
     	int cilindraje = resultSet.getInt("cilindraje");
     	String modelo = resultSet.getString("modelo");
     	String marca = resultSet.getString("marca");	
-        LocalDateTime fechaIngreso = extraerLocalDateTime(resultSet, "fecha_creacion");
+        LocalDateTime fechaIngreso = extraerLocalDateTime(resultSet, "fechaIngreso");
         
         return new DtoVehiculo(placa,tipo,cilindraje,modelo,marca,fechaIngreso);
     }
