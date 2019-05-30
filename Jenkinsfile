@@ -47,33 +47,50 @@ pipeline{
 				}
 			}				
 			
-			stage('Build') {//listo
+			stage('Build project') {//listo
 				steps{
 					echo "------------>Build<------------"
-					sh 'gradle --b ./parqueadero/build.gradle build -x test'
+					sh 'gradle --b ./parqueadero/build.gradle clean'
+                    sh 'gradle --b ./parqueadero/build.gradle compileJava'					
 				}
 			}
 			
-			stage('Unit Test'){//listo
+			stage('Unit and Integration Tests initializer-service'){//listo
 				steps{
-					echo "------------>Unit Tests<------------"
+					echo "------------>Unit and Integration Tests initializer-service<------------"
 					sh 'gradle --b ./parqueadero/build.gradle build'
-					sh 'gradle --b ./parqueadero/comando/comando-dominio/build.gradle build'
-					sh 'gradle --b ./parqueadero/comando/comando-dominio/build.gradle jacocoTestReport'
+					sh 'gradle --b ./parqueadero/build.gradle jacocoTestReport'
 				}
 			}
 			
-			stage('Static Code Analysis'){//listo
+			stage('Sonar') {
 				steps{
+					echo '------------>Analisis de codigo estatico<------------'
 					withEnv(['JAVA_HOME=/opt/Java/jdk1.8.0_51/']) {
 						withSonarQubeEnv('Sonar') {
-							echo '------------>Analisis de codigo estatico<------------'					
-							sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties" 
-					    }		
+							sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties"                        
+						}
+                    }
+					
+                }
+            }
+            
+            stage('Publish') {
+				steps{
+					echo '------------>Publish [Artifactory]<------------'
+					script{ //takes a block of Scripted Pipeline and executes that in the Declarative Pipeline
+					  def server = Artifactory.server 'ar7if4c70ry@c318a'
+					  def uploadSpec = '''
+						{"files": [{
+						  "pattern": "**/build/libs/*.jar",
+						  "target": "libs-release-local/XXXXXX/build/"
+						}]}'''
+			
+					  def buildInfo = server.upload(uploadSpec)
+					  server.publishBuildInfo(buildInfo)
 					}
-								  					
 				}
-			}
+            }
 														
 		}
 		
