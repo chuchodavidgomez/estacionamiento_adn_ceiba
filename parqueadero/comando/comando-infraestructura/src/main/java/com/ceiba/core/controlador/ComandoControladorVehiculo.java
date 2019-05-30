@@ -34,7 +34,7 @@ public class ComandoControladorVehiculo {
 		this.manejadorActualizarVehiculo = manejadorActualizarVehiculo;
 	}
 
-	@PostMapping
+	@PostMapping("/ingresar")
 	@ApiOperation("Crear vehiculo")
 	public void crear(@RequestBody ComandoVehiculo comandoVehiculo) {
 		manejadorCrearVehiculo.ejecutar(comandoVehiculo);
