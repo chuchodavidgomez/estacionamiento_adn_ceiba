@@ -1,11 +1,12 @@
 package com.ceiba.core.controlador;
 
-//import static org.hamcrest.Matchers.hasSize;
-//import static org.hamcrest.core.Is.is;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.hamcrest.core.Is;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,9 @@ public class ConsultaControladorVehiculoTest {
         // act - assert
     	mocMvc.perform(get("/vehiculos")
     		      .contentType(MediaType.APPLICATION_JSON))
-    		      .andExpect(status().isOk());
-    		      //.andExpect(jsonPath("$", hasSize(2)))se debe implementar el repo
-    		      //.andExpect(jsonPath("$[0].placa", //is("aaa111")));
+    		      .andExpect(status().isOk())
+    		      .andExpect(jsonPath("$", hasSize(2)))
+    		      .andExpect(jsonPath("$[0].placa", is("aaa111")));
     }
     
 

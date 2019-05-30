@@ -16,6 +16,7 @@ dependencies {
 	
 	compile project.ext.springbootjdbc
 
+	runtimeOnly project.ext.mysql
 	
 	compile project.ext.springbootjasypt
 	

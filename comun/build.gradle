@@ -28,5 +28,5 @@ allprojects {
 	project.ext.junit = ["junit:junit:4.12"]
 	project.ext.mockito = ['org.mockito:mockito-all:1.10.19']
 	project.ext.h2 = ["com.h2database:h2:1.4.194"]
-	
+	project.ext.mysql = ["mysql:mysql-connector-java:8.0.13"]
 }

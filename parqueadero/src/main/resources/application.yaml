@@ -1,3 +1,21 @@
+jasypt:
+   encryptor:
+      password: ${jasyptpwd}
+      algorithm: PBEWithMD5AndDES
 
+spring:
+   datasource:
+      driver-class-name: org.h2.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      jdbcUrl: jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1
+      username: sa
+      password: 
+      hikari:
+         poolName: pool
+
+server:
+   port: 8083
+   servlet:
+      context-path: /parqueadero
 
 
