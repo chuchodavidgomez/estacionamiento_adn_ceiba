@@ -63,10 +63,13 @@ pipeline{
 			
 			stage('Static Code Analysis'){//listo
 				steps{
-					withSonarQubeEnv('Sonar') {
-						echo '------------>Analisis de codigo estatico<------------'					
-						sh "${tool name: 'SonarScanner',type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"	
-					}				  					
+					withEnv(['JAVA_HOME=/opt/Java/jdk1.8.0_51/']) {
+						withSonarQubeEnv('Sonar') {
+							echo '------------>Analisis de codigo estatico<------------'					
+							sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties" 
+					    }		
+					}
+								  					
 				}
 			}
 														
