@@ -75,22 +75,7 @@ pipeline{
                 }
             }
             
-            stage('Publish') {
-				steps{
-					echo '------------>Publish [Artifactory]<------------'
-					script{ //takes a block of Scripted Pipeline and executes that in the Declarative Pipeline
-					  def server = Artifactory.server 'ar7if4c70ry@c318a'
-					  def uploadSpec = '''
-						{"files": [{
-						  "pattern": "**/build/libs/*.jar",
-						  "target": "libs-release-local/XXXXXX/build/"
-						}]}'''
-			
-					  def buildInfo = server.upload(uploadSpec)
-					  server.publishBuildInfo(buildInfo)
-					}
-				}
-            }
+            
 														
 		}
 		
