@@ -1,6 +1,6 @@
 package com.ceiba.core.controlador;
 
-//pruebas del api rest
+//pruebas de integracion
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -39,7 +39,7 @@ public class ComandoControladorVehiculoTest {
         ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(post("/vehiculos")
+        mocMvc.perform(post("/vehiculos/ingresar")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(vehiculo)))
         		.andExpect(status().isOk());

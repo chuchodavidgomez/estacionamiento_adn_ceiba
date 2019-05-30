@@ -1,5 +1,5 @@
 package com.ceiba.core.servicio.vehiculo;
-
+//pruebas unitarias al dominio
 import org.junit.Test;
 import org.mockito.Mockito;
 
