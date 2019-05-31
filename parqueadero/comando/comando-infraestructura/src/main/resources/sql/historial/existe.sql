@@ -1,0 +1,1 @@
+select count(1) from historial where id = :id

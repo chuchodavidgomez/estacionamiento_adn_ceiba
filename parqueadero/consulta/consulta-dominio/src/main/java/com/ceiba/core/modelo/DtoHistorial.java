@@ -1,17 +1,14 @@
-package com.ceiba.core.historial;
+package com.ceiba.core.modelo;
 
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
-public class ComandoHistorial {
+public class DtoHistorial {
+
 	private Long id;
 	private String placaVehiculo;
 	private LocalDateTime fechaIngreso;

@@ -9,7 +9,7 @@ public class Historial {
 	private static final String SE_DEBE_INGRESAR_LA_PLACA = "Se debe ingresar la placa";
 	
 	private Long id;
-	private String placa;
+	private String placaVehiculo;
 	private LocalDateTime fechaIngreso;
 	private LocalDateTime fechaSalida;
 	private double pago;
@@ -17,7 +17,7 @@ public class Historial {
 	public Historial(Long id, String placa, LocalDateTime fechaIngreso, LocalDateTime fechaSalida, double pago) {
 		validarObligatorio(placa, SE_DEBE_INGRESAR_LA_PLACA);
 		this.id = id;
-		this.placa = placa;
+		this.placaVehiculo = placa;
 		this.fechaIngreso = fechaIngreso;
 		this.fechaSalida = fechaSalida;
 		this.pago = pago;		
@@ -28,7 +28,7 @@ public class Historial {
 	}
 	
 	public String getPlaca() {
-		return placa;
+		return placaVehiculo;
 	}
 	
 	public LocalDateTime getFechaIngreso() {

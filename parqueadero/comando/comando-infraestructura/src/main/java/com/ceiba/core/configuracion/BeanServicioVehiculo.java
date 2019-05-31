@@ -9,7 +9,7 @@ import com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculo;
 import com.ceiba.core.servicio.vehiculo.ServicioEliminarVehiculo;
 
 @Configuration
-public class BeanServicio {
+public class BeanServicioVehiculo {
 
 	@Bean
 	public ServicioCrearVehiculo servicioCrearVehiculo(RepositorioVehiculo repositorioVehiculo) {

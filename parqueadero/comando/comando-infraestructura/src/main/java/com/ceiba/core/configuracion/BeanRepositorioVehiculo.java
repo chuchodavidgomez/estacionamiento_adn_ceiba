@@ -8,7 +8,7 @@ import com.ceiba.core.repositorio.RepositorioVehiculo;
 import com.ceiba.core.repositorio.RepositorioVehiculoMysql;
 
 @Configuration
-public class BeanRepositorio {
+public class BeanRepositorioVehiculo {
 	@Bean
 	public RepositorioVehiculo repositorioVehiculo(CustomNamedParameterJdbcTemplate repositorioGenerico) {
 		return new RepositorioVehiculoMysql(repositorioGenerico);

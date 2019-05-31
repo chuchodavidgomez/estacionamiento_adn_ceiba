@@ -8,12 +8,12 @@ CREATE TABLE vehiculo (
   PRIMARY KEY (placa)
 );
 
--- CREATE TABLE historial (
+--CREATE TABLE historial (
 -- id INT NOT NULL AUTO_INCREMENT,
 --  fechaIngreso DATETIME NOT NULL,
 --  fechaSalida DATETIME NULL,
 --  pago FLOAT ZEROFILL NULL,
- -- vehiculo_placa VARCHAR(6) NOT NULL,
+--  placaVehiculo VARCHAR(6) NOT NULL,
 --  PRIMARY KEY (id),
 --  INDEX (vehiculo_placa),
 --  FOREIGN KEY (vehiculo_placa) REFERENCES vehiculo(placa)

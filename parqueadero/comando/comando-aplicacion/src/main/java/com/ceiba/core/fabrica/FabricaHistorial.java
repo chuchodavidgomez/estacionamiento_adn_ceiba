@@ -10,7 +10,7 @@ public class FabricaHistorial {
 	public Historial crear(ComandoHistorial comandoHistorial) {
 		return new Historial(
 				 comandoHistorial.getId(),
-				 comandoHistorial.getPlaca(),
+				 comandoHistorial.getPlacaVehiculo(),
 				 comandoHistorial.getFechaIngreso(),
 				 comandoHistorial.getFechaSalida(),
 				 comandoHistorial.getPago());	

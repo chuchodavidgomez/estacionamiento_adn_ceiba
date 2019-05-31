@@ -4,27 +4,26 @@ import com.ceiba.core.modelo.vehiculo.Vehiculo;
 
 public interface RepositorioVehiculo {
 	/**
-	 * Permite crear un usuario
+	 * Permite crear un vehiculo
 	 * @param vehiculo
-	 * @return el id generado
 	 */
     void crear(Vehiculo vehiculo);
     
     /**
-	 * Permite actualizar un usuario
-	 * @param usuario
+	 * Permite actualizar un vehiculo
+	 * @param vehiculo
 	 */
     void actualizar(Vehiculo vehiculo);
     
     /**
-     * Permite eliminar un usuario
-     * @param id
+     * Permite eliminar un vehiculo
+     * @param placa
      */
     void eliminar(String placa);
     
     /**
-     * Permite validar si existe un usuario con un nombre
-     * @param nombre
+     * Permite validar si existe un vehiculo con esa placa
+     * @param placa
      * @return si existe o no
      */
     boolean existe(String placa);
