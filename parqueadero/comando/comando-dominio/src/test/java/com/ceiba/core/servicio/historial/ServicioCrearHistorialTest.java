@@ -8,7 +8,7 @@ import com.ceiba.core.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.core.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.core.modelo.historial.Historial;
 import com.ceiba.core.repositorio.RepositorioHistorial;
-import com.ceiba.core.servicio.testdatabuilder.ComandoHistorialTestDataBuilder;
+import com.ceiba.core.servicio.testdatabuilder.HistorialTestDataBuilder;
 import com.ceiba.core.servicio.historial.ServicioCrearHistorial;
 
 public class ServicioCrearHistorialTest {
@@ -16,7 +16,7 @@ public class ServicioCrearHistorialTest {
 	@Test
     public void validarIngresarPlacaTest() {
         // arrange
-    	ComandoHistorialTestDataBuilder HistorialTestDataBuilder = new ComandoHistorialTestDataBuilder().conPlacaVehiculo(null);
+    	HistorialTestDataBuilder HistorialTestDataBuilder = new HistorialTestDataBuilder().conPlacaVehiculo(null);
         // act - assert
         BasePrueba.assertThrows(() -> HistorialTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la placa");
     }
@@ -24,7 +24,7 @@ public class ServicioCrearHistorialTest {
 	@Test
     public void validarIngresarFechaIngreso() {
         // arrange
-    	ComandoHistorialTestDataBuilder HistorialTestDataBuilder = new ComandoHistorialTestDataBuilder().conFechaIngreso(null);
+    	HistorialTestDataBuilder HistorialTestDataBuilder = new HistorialTestDataBuilder().conFechaIngreso(null);
         // act - assert
         BasePrueba.assertThrows(() -> HistorialTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de ingreso");
     }
@@ -32,7 +32,7 @@ public class ServicioCrearHistorialTest {
 	@Test
     public void validarHistorialExistentePrevioTest() {
         // arrange
-    	Historial Historial = new ComandoHistorialTestDataBuilder().build();
+    	Historial Historial = new HistorialTestDataBuilder().build();
     	RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);
     	Mockito.when(repositorioHistorial.existe(Mockito.anyLong())).thenReturn(true);
     	ServicioCrearHistorial servicioCrearHistorial = new ServicioCrearHistorial(repositorioHistorial);
