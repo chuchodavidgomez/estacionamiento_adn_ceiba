@@ -64,7 +64,7 @@ public class ServicioCrearVehiculoTest {
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearVehiculo.ejecutar(vehiculo), ExcepcionDuplicidad.class,"El vehiculo ya existe en el sistema");
     }
-	
+	/*
 	@Test
     public void validarVehiculoExistenciaPreviaTest2() {
         // arrange
@@ -74,5 +74,5 @@ public class ServicioCrearVehiculoTest {
     	ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo);
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearVehiculo.ejecutar(vehiculo), ExcepcionDuplicidad.class,"El vehiculo ya existe en el sistema");
-    }
+    }*/
 }
