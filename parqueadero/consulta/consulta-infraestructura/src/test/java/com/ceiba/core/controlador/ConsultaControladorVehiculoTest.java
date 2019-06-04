@@ -1,4 +1,4 @@
-package com.ceiba.core.controlador;
+/*package com.ceiba.core.controlador;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
@@ -22,7 +22,7 @@ import com.ceiba.core.ApplicationMock;
 @ContextConfiguration(classes=ApplicationMock.class)
 @WebMvcTest(ConsultaControladorVehiculo.class)
 public class ConsultaControladorVehiculoTest {
-/*
+
 	@Autowired
     private MockMvc mocMvc;
 
@@ -37,6 +37,7 @@ public class ConsultaControladorVehiculoTest {
     		      .andExpect(jsonPath("$", hasSize(2)))
     		      .andExpect(jsonPath("$[0].placa", is("aaa111")));
     }
-    */
+    
 
 }
+*/
