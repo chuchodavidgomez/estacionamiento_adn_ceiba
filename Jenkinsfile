@@ -50,8 +50,9 @@ pipeline{
 			stage('Build project') {//listo
 				steps{
 					echo "------------>Build<------------"
-					sh 'gradle --b ./parqueadero/build.gradle clean'
-                    sh 'gradle --b ./parqueadero/build.gradle compileJava'					
+					//sh 'gradle --b ./parqueadero/build.gradle clean'
+                    //sh 'gradle --b ./parqueadero/build.gradle compileJava'	
+					sh 'gradle build -x test'					
 				}
 			}
 			
