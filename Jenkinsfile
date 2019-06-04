@@ -59,7 +59,7 @@ pipeline{
 			stage('Unit and Integration Tests initializer-service'){//listo
 				steps{
 					echo "------------>Unit and Integration Tests initializer-service<------------"
-					sh 'gradle --b build.gradle tes'
+					sh 'gradle --b build.gradle test'
 					//sh 'gradle --b ./parqueadero/build.gradle test'
 					//sh 'gradle --b ./parqueadero/build.gradle jacocoTestReport'
 				}
