@@ -50,18 +50,16 @@ pipeline{
 			stage('Build project') {//listo
 				steps{
 					echo "------------>Build<------------"
-					//sh 'gradle --b ./parqueadero/build.gradle clean'
-                    //sh 'gradle --b ./parqueadero/build.gradle compileJava'	
-					sh 'gradle build'					
+					sh 'gradle --b ./parqueadero/build.gradle clean'
+                    sh 'gradle --b ./parqueadero/build.gradle compileJava'					
 				}
 			}
 			
 			stage('Unit and Integration Tests initializer-service'){//listo
 				steps{
 					echo "------------>Unit and Integration Tests initializer-service<------------"
-					sh 'gradle build'
-					//sh 'gradle --b ./parqueadero/build.gradle test'
-					//sh 'gradle --b ./parqueadero/build.gradle jacocoTestReport'
+					sh 'gradle --b ./parqueadero/build.gradle build'
+					sh 'gradle --b ./parqueadero/build.gradle jacocoTestReport'
 				}
 			}
 			
