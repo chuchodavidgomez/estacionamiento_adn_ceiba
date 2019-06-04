@@ -20,8 +20,8 @@ import com.ceiba.core.ApplicationMock;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes=ApplicationMock.class)
-@WebMvcTest(ConsultaControladorVehiculo.class)
-public class ConsultaControladorVehiculoTest {
+@WebMvcTest(ConsultaControladorHistorial.class)
+public class ConsultaControladorHistorialTest {
 
 	@Autowired
     private MockMvc mocMvc;
@@ -31,11 +31,11 @@ public class ConsultaControladorVehiculoTest {
         // arrange
 
         // act - assert
-    	mocMvc.perform(get("/vehiculos")
+    	mocMvc.perform(get("/historial")
     		      .contentType(MediaType.APPLICATION_JSON))
     		      .andExpect(status().isOk())
-    		      .andExpect(jsonPath("$", hasSize(2)))
-    		      .andExpect(jsonPath("$[0].placa", is("aaa111")));
+    		      .andExpect(jsonPath("$", hasSize(1)))
+    		      .andExpect(jsonPath("$[0].placaVehiculo", is("aaa111")));
     }
     
 
