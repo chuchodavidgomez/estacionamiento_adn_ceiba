@@ -52,7 +52,7 @@ pipeline{
 					echo "------------>Build<------------"
 					//sh 'gradle --b ./parqueadero/build.gradle clean'
                     //sh 'gradle --b ./parqueadero/build.gradle compileJava'	
-					sh 'gradle build -x test'					
+					sh 'gradle build'					
 				}
 			}
 			
