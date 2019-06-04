@@ -14,8 +14,7 @@ public class FabricaVehiculo {
 	        comandoUsuario.getTipo(),
 	        comandoUsuario.getCilindraje(),
 	        comandoUsuario.getModelo(),
-	        comandoUsuario.getMarca(),
-	        comandoUsuario.getFechaIngreso()
+	        comandoUsuario.getMarca()
 	    );
 	}
 

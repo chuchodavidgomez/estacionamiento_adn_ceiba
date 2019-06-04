@@ -14,7 +14,7 @@ public class DaoHistorialMysql implements DaoHistorial {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
     
-    @SqlStatement(namespace="Historial", value="listar")
+    @SqlStatement(namespace="historial", value="listar")
 	private String sqlListar;
 
     public DaoHistorialMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {

@@ -2,7 +2,7 @@ package com.ceiba.core.fabrica;
 
 import org.springframework.stereotype.Component;
 
-import com.ceiba.core.historial.ComandoHistorial;
+import com.ceiba.core.comando.ComandoHistorial;
 import com.ceiba.core.modelo.historial.Historial;
 @Component
 public class FabricaHistorial {

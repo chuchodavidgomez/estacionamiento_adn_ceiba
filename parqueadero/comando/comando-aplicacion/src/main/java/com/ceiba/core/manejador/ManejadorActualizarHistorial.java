@@ -3,8 +3,8 @@ package com.ceiba.core.manejador;
 import org.springframework.stereotype.Component;
 
 import com.ceiba.core.aplicacion.manejador.ManejadorComando;
+import com.ceiba.core.comando.ComandoHistorial;
 import com.ceiba.core.fabrica.FabricaHistorial;
-import com.ceiba.core.historial.ComandoHistorial;
 import com.ceiba.core.modelo.historial.Historial;
 import com.ceiba.core.servicio.historial.ServicioActualizarHistorial;
 

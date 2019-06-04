@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 public class Historial {
 	
 	private static final String SE_DEBE_INGRESAR_LA_PLACA = "Se debe ingresar la placa";
+	private static final String SE_DEBE_INGRESAR_LA_FECHA_DE_INGRESO = "Se debe ingresar la fecha de ingreso";
 	
 	private Long id;
 	private String placaVehiculo;
@@ -16,6 +17,7 @@ public class Historial {
 	
 	public Historial(Long id, String placa, LocalDateTime fechaIngreso, LocalDateTime fechaSalida, double pago) {
 		validarObligatorio(placa, SE_DEBE_INGRESAR_LA_PLACA);
+		validarObligatorio(fechaIngreso, SE_DEBE_INGRESAR_LA_FECHA_DE_INGRESO);
 		this.id = id;
 		this.placaVehiculo = placa;
 		this.fechaIngreso = fechaIngreso;

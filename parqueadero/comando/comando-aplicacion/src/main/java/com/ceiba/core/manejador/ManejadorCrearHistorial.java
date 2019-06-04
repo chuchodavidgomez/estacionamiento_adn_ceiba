@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 import com.ceiba.core.aplicacion.ComandoRespuesta;
 import com.ceiba.core.aplicacion.manejador.ManejadorComandoRespuesta;
+import com.ceiba.core.comando.ComandoHistorial;
 import com.ceiba.core.fabrica.FabricaHistorial;
-import com.ceiba.core.historial.ComandoHistorial;
 import com.ceiba.core.modelo.historial.Historial;
 import com.ceiba.core.servicio.historial.ServicioCrearHistorial;
 

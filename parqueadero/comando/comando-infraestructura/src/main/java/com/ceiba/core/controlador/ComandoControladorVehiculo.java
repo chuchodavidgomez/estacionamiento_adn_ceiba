@@ -40,13 +40,13 @@ public class ComandoControladorVehiculo {
 		manejadorCrearVehiculo.ejecutar(comandoVehiculo);
 	}
 
-	@DeleteMapping(value="/{placa}")
+	@DeleteMapping(value="/eliminar/{placa}")
 	@ApiOperation("Eliminar vehiculo")
 	public void eliminar(@PathVariable String placa) {
 		manejadorEliminarVehiculo.ejecutar(placa);
 	}
 	
-	@PutMapping(value="/{placa}")
+	@PutMapping(value="/actualizar/{placa}")
 	@ApiOperation("Actualizar vehiculo")
 	public void actualizar(@RequestBody ComandoVehiculo comandoVehiculo,@PathVariable String placa) {
 		comandoVehiculo.setPlaca(placa);

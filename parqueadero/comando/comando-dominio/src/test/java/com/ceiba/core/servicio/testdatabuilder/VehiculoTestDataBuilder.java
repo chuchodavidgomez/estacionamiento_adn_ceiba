@@ -1,7 +1,5 @@
 package com.ceiba.core.servicio.testdatabuilder;
 
-import java.time.LocalDateTime;
-
 import com.ceiba.core.modelo.vehiculo.Vehiculo;
 
 public class VehiculoTestDataBuilder {
@@ -11,7 +9,6 @@ public class VehiculoTestDataBuilder {
 	private int cilindraje;
 	private String modelo;
 	private String marca;	
-    private LocalDateTime fechaIngreso;
     
     public VehiculoTestDataBuilder() {
 		placa = "abc123";
@@ -19,7 +16,6 @@ public class VehiculoTestDataBuilder {
 		cilindraje = 500;
 		modelo = "y5";
 		marca = "yamaha";
-		fechaIngreso = LocalDateTime.now();
 	}
     
     public VehiculoTestDataBuilder conPlaca(String placa) {
@@ -47,13 +43,7 @@ public class VehiculoTestDataBuilder {
     	return this;
     }
     
-    public VehiculoTestDataBuilder conFechaIngreso(LocalDateTime fechaIngreso) {
-    	this.fechaIngreso = fechaIngreso;
-    	return this;
-    }
-    
-    
     public Vehiculo build() {
-    	return new Vehiculo(placa,tipo,cilindraje,modelo,marca,fechaIngreso);
+    	return new Vehiculo(placa,tipo,cilindraje,modelo,marca);
     }
 }

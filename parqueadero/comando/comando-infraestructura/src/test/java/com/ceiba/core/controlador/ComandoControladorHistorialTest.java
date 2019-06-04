@@ -1,9 +1,9 @@
 package com.ceiba.core.controlador;
 
-//pruebas de integracion
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Test;
@@ -16,14 +16,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.ceiba.core.ApplicationMock;
-import com.ceiba.core.comando.ComandoVehiculo;
-import com.ceiba.core.testdatabuilder.ComandoVehiculoTestDataBuilder;
+import com.ceiba.core.comando.ComandoHistorial;
+import com.ceiba.core.testdatabuilder.ComandoHistorialTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes=ApplicationMock.class)
-@WebMvcTest(ComandoControladorVehiculo.class)
-public class ComandoControladorVehiculoTest {
+@WebMvcTest(ComandoControladorHistorial.class)
+public class ComandoControladorHistorialTest {
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -36,35 +36,36 @@ public class ComandoControladorVehiculoTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
+        ComandoHistorial Historial = new ComandoHistorialTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(post("/vehiculos/ingresar")
+        mocMvc.perform(post("/historial/ingresar")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(objectMapper.writeValueAsString(vehiculo)))
-        		.andExpect(status().isOk());
+                .content(objectMapper.writeValueAsString(Historial)))
+        		.andExpect(status().isOk())
+        		.andExpect(content().json("{'valor': 1}"));
     }
     
     @Test
     public void actualizar() throws Exception{
         // arrange
-    	String placa = "abc123";
-        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
+    	Long id = 2L;
+        ComandoHistorial Historial = new ComandoHistorialTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/vehiculos/actualizar/{placa}",placa)
+        mocMvc.perform(put("/historial/actualizar/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(objectMapper.writeValueAsString(vehiculo)))
+                .content(objectMapper.writeValueAsString(Historial)))
         		.andExpect(status().isOk());
     }
     
     @Test
     public void eliminar() throws Exception {
         // arrange
-        String placa = "abc123";
+        Long id = 2L;
 
         // act - assert
-        mocMvc.perform(delete("/vehiculos/eliminar/{placa}",placa)
+        mocMvc.perform(delete("/historial/eliminar/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

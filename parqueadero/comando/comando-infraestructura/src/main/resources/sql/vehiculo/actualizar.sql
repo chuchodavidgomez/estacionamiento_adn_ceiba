@@ -4,6 +4,5 @@ set
 	tipo = :tipo, 
 	cilindraje = :cilindraje, 
 	modelo = :modelo, 
-	marca = :marca, 
-	fechaIngreso = :fechaIngreso
+	marca = :marca	
 where placa = :placa

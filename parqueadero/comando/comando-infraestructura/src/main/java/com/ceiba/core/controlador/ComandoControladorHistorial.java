@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ceiba.core.aplicacion.ComandoRespuesta;
-import com.ceiba.core.historial.ComandoHistorial;
+import com.ceiba.core.comando.ComandoHistorial;
 import com.ceiba.core.manejador.ManejadorActualizarHistorial;
 import com.ceiba.core.manejador.ManejadorCrearHistorial;
 import com.ceiba.core.manejador.ManejadorEliminarHistorial;
@@ -36,13 +36,13 @@ public class ComandoControladorHistorial {
 		return manejadorCrearHistorial.ejecutar(comandoHistorial);
 	}
 	
-	@DeleteMapping(value="eliminar/{id}")
+	@DeleteMapping(value="/eliminar/{id}")
 	@ApiOperation("Eliminar registro")
 	public void eliminar(@PathVariable Long id) {
 		manejadorEliminarHistorial.ejecutar(id);
 	}
 	
-	@PutMapping(value="actualizar/{id}")
+	@PutMapping(value="/actualizar/{id}")
 	@ApiOperation("Actualizar historial")
 	public void actualizar(@RequestBody ComandoHistorial comandoHistorial, @PathVariable Long id) {
 		comandoHistorial.setId(id);

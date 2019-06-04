@@ -1,1 +1,1 @@
-insert into historial (id, placaVehiculo, fechaIngreso, fechaSalida, pago) values (:id, :placaVehiculo, :fechaIngreso, :fechaSalida, :pago) 
+insert into historial (placaVehiculo, fechaIngreso, fechaSalida, pago) values ( :placaVehiculo, :fechaIngreso, :fechaSalida, :pago) 

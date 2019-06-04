@@ -24,9 +24,6 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo{
 	@SqlStatement(namespace="vehiculo", value="existe")
 	private String sqlExiste;
 	
-	@SqlStatement(namespace="vehiculo", value="existeExcluyendoId") 
-	private String sqlExisteExcluyendoId;
-	
 	public RepositorioVehiculoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
 	}
@@ -54,15 +51,5 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo{
 		paramSource.addValue("placa", placa);
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
 	}
-
-	@Override
-	public boolean existeExcluyendoPlaca(String placa, String marca) {
-		MapSqlParameterSource paramSource = new MapSqlParameterSource();
-		paramSource.addValue("placa", placa);
-	    paramSource.addValue("marca", marca);
-	    
-		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteExcluyendoId,paramSource, Boolean.class);
-	}
-	
 	
 }

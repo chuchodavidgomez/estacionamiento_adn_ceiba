@@ -4,7 +4,6 @@ CREATE TABLE vehiculo (
   cilindraje INT NOT NULL,
   marca VARCHAR(45) NOT NULL,
   modelo VARCHAR(45) NOT NULL,
-  fechaIngreso datetime null,
   PRIMARY KEY (placa)
 );
 

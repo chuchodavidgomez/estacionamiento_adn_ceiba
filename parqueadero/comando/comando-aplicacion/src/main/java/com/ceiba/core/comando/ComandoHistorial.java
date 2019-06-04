@@ -1,4 +1,4 @@
-package com.ceiba.core.historial;
+package com.ceiba.core.comando;
 
 import java.time.LocalDateTime;
 

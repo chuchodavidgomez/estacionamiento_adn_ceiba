@@ -27,12 +27,4 @@ public interface RepositorioVehiculo {
      * @return si existe o no
      */
     boolean existe(String placa);
-    
-    /**
-     * Permite validar si existe un usuario con un nombre excluyendo un id
-     * @param nombre
-     * @return si existe o no
-     */
-    boolean existeExcluyendoPlaca(String placa,String marca);
-
 }
