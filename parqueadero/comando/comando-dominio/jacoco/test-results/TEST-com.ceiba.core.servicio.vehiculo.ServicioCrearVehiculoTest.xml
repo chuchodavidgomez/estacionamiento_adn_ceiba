@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-06-05T21:32:59" hostname="JESUS-GOMEZ" time="0.029">
+  <properties/>
+  <testcase name="validarPlacaLongitud6Test" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.002"/>
+  <testcase name="validarIngresarTipo" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.001"/>
+  <testcase name="validarIngresarModelo" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.001"/>
+  <testcase name="validarVehiculoExistenciaPreviaTest" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.021"/>
+  <testcase name="validarIngresarMarca" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.002"/>
+  <testcase name="validarIngresarPlaca" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

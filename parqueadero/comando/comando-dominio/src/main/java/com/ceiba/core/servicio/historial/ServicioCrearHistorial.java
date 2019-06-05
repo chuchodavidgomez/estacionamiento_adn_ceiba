@@ -16,6 +16,8 @@ public class ServicioCrearHistorial {
 	private static final String NO_PUEDE_INGRESAR_DIA_NO_HABIL = "No puede ingresar, dia no habil";
 	private static final String MOTO = "moto";
 	private static final String LETRA_A = "a";
+	private static final Integer NUMERO_MAXIMO_AUTO = 20;
+	private static final Integer NUMERO_MAXIMO_MOTO = 10;
 	
 	private final RepositorioHistorial repositorioHistorial;
 	
@@ -38,33 +40,34 @@ public class ServicioCrearHistorial {
 	}
 	
 	private void validarCupos(Historial historial) {
-		String tipo = this.repositorioHistorial.devuelveTipo(historial.getPlaca());
+		//String tipo = this.repositorioHistorial.devuelveTipo(historial.getPlaca());
+		String tipo = "moto";
 		int cantidadVehiculos = this.repositorioHistorial.cantidadVehiculos(tipo);
 		
 		if(tipo.equals(MOTO)) {
-			if(cantidadVehiculos>10) {
+			if(cantidadVehiculos > NUMERO_MAXIMO_MOTO) {
 				throw new ExcepcionExcedeCantidad(NO_HAY_CUPOS_DISPONIBLES_PARA_MOTO);
 			}
 		}else {
-			if(cantidadVehiculos>20) {
+			if(cantidadVehiculos > NUMERO_MAXIMO_AUTO) {
 				throw new ExcepcionExcedeCantidad(NO_HAY_CUPOS_DISPONIBLES_PARA_AUTO);
 			}
 		}
 	}
 	
 	private void validarPlaca(String placa) {
-		if(validaPrimeraLetra(placa) && esLunesODomingo()) {
+		DayOfWeek dayOfToday = LocalDateTime.now().getDayOfWeek();
+		if(validaPrimeraLetra(placa) && esLunesODomingo(dayOfToday)) {
 			throw new ExcepcionDiaNoHabil(NO_PUEDE_INGRESAR_DIA_NO_HABIL);
 		}
 	}
 	
-	private boolean validaPrimeraLetra(String placa) {
+	public boolean validaPrimeraLetra(String placa) {
 		String primeraLetra = placa.toLowerCase().charAt(0) + "";
 		return primeraLetra.equals(LETRA_A);
 	}
 	
-	private Boolean esLunesODomingo() {
-		DayOfWeek dayOfToday = LocalDateTime.now().getDayOfWeek();
+	public Boolean esLunesODomingo(DayOfWeek dayOfToday) {		
 		return dayOfToday.equals(DayOfWeek.MONDAY) || dayOfToday.equals(DayOfWeek.SUNDAY);
 	}
 	

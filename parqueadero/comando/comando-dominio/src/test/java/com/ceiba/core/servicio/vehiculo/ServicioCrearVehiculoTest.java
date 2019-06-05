@@ -64,15 +64,5 @@ public class ServicioCrearVehiculoTest {
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearVehiculo.ejecutar(vehiculo), ExcepcionDuplicidad.class,"El vehiculo ya existe en el sistema");
     }
-	/*
-	@Test
-    public void validarVehiculoExistenciaPreviaTest2() {
-        // arrange
-    	Vehiculo vehiculo = new VehiculoTestDataBuilder().build();
-    	RepositorioVehiculo repositorioVehiculo = Mockito.mock(RepositorioVehiculo.class);
-    	Mockito.when(repositorioVehiculo.existe(Mockito.anyString())).thenReturn(false);
-    	ServicioCrearVehiculo servicioCrearVehiculo = new ServicioCrearVehiculo(repositorioVehiculo);
-        // act - assert
-        BasePrueba.assertThrows(() -> servicioCrearVehiculo.ejecutar(vehiculo), ExcepcionDuplicidad.class,"El vehiculo ya existe en el sistema");
-    }*/
+	
 }
