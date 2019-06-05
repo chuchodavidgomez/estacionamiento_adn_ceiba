@@ -1,0 +1,1 @@
+SELECT tipo FROM vehiculo WHERE placa = :placa

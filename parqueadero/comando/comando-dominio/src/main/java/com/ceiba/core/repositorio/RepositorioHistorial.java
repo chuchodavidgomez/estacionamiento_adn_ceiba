@@ -35,4 +35,23 @@ public interface RepositorioHistorial {
      * @return si existe o no
      */
 	boolean existe(Long id);
+	
+	/**
+     * devuelve la cantidad de vehiculos dependiendo del tipo
+     * @param tipo
+     * @return cantidad del vehiculo solicitado
+     */
+	int cantidadVehiculos(String tipo);
+	
+	/**
+     * devuelve el tipo del vehiculo
+     * @param placa
+     * @return tipo
+     */
+	String devuelveTipo(String placa);
+	
+	/*
+	 * https://github.com/hildyale/Ceiba-Parqueadero/blob/master/src/main/java/co/com/ceiba/ceibaParqueadero/dominio/validaciones/CarroValidador.java
+	 * https://github.com/hildyale/Ceiba-Parqueadero/blob/master/src/main/java/co/com/ceiba/ceibaParqueadero/dominio/validaciones/CarroValidador.java
+	 */
 }

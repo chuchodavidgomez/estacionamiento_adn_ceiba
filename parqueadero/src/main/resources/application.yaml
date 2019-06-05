@@ -3,25 +3,25 @@ jasypt:
       password: ${jasyptpwd}
       algorithm: PBEWithMD5AndDES
 
-#spring:
-#   datasource:
-#      driver-class-name: com.mysql.jdbc.Driver
-#      type: com.zaxxer.hikari.HikariDataSource
-#      jdbcUrl: jdbc:mysql://localhost:3306/parqueadero
-#      username: root
-#      password: root
-#      hikari:
-#         poolName: pool
-
 spring:
    datasource:
-      driver-class-name: org.h2.Driver
+      driver-class-name: com.mysql.jdbc.Driver
       type: com.zaxxer.hikari.HikariDataSource
-      jdbcUrl: jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1
-      username: sa
-      password: 
+      jdbcUrl: jdbc:mysql://localhost:3306/parqueadero?serverTimezone=UTC
+      username: root
+      password: root
       hikari:
          poolName: pool
+
+#spring:
+#   datasource:
+#      driver-class-name: org.h2.Driver
+#      type: com.zaxxer.hikari.HikariDataSource
+#      jdbcUrl: jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1
+#      username: sa
+#      password: 
+#      hikari:
+#         poolName: pool
 
 server:
    port: 8083

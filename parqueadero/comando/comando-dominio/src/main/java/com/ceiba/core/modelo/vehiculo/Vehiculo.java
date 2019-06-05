@@ -1,6 +1,6 @@
 package com.ceiba.core.modelo.vehiculo;
 
-import static com.ceiba.core.dominio.ValidadorArgumento.validarLongitud;
+import static com.ceiba.core.dominio.ValidadorArgumento.validarLongitudDiferentes;
 import static com.ceiba.core.dominio.ValidadorArgumento.validarObligatorio;
 
 public class Vehiculo {
@@ -21,7 +21,7 @@ public class Vehiculo {
 
     public Vehiculo(String placa, String tipo, int cilindraje, String modelo, String marca) {
         validarObligatorio(placa, SE_DEBE_INGRESAR_LA_PLACA);
-        validarLongitud(placa, LONGITUD_PLACA, String.format(LA_PLACA_DEBE_TENER_LONGITUD_IGUAL,LONGITUD_PLACA)); 
+        validarLongitudDiferentes(placa, LONGITUD_PLACA, String.format(LA_PLACA_DEBE_TENER_LONGITUD_IGUAL,LONGITUD_PLACA)); 
         validarObligatorio(tipo, SE_DEBE_INGRESAR_EL_TIPO);   
         validarObligatorio(modelo, SE_DEBE_INGRESAR_EL_MODELO);
         validarObligatorio(marca, SE_DEBE_INGRESAR_LA_MARCA);    

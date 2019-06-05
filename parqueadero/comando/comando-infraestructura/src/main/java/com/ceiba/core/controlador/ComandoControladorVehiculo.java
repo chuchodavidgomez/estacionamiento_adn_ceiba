@@ -18,7 +18,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/vehiculos")
+@RequestMapping("/vehiculo")
 @Api(tags = { "Controlador comando vehiculo"})
 public class ComandoControladorVehiculo {
 

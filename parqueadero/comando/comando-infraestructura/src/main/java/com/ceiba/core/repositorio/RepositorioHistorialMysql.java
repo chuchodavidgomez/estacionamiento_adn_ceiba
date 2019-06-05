@@ -25,7 +25,13 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 	private String sqlExiste;
 	
 	@SqlStatement(namespace="historial", value="estaParqueado") 
-	private String estaParqueado;
+	private String sqlEstaParqueado;
+	
+	@SqlStatement(namespace="historial", value="cantidadVehiculo") 
+	private String sqlCantidadVehiculo;
+	
+	@SqlStatement(namespace="historial", value="devuelveTipo") 
+	private String sqldevuelveTipo;
 	
 	public RepositorioHistorialMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -53,7 +59,7 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("placaVehiculo", placaVehiculo);
 		
-		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(estaParqueado, paramSource, Boolean.class);
+		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlEstaParqueado, paramSource, Boolean.class);
 	}
 
 	@Override
@@ -62,6 +68,22 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 	    paramSource.addValue("id", id);
 	    
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);
+	}
+
+	@Override
+	public int cantidadVehiculos(String tipo) {
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+	    paramSource.addValue("tipo", tipo);
+	    
+	    return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlCantidadVehiculo,paramSource, Integer.class);
+	}
+
+	@Override
+	public String devuelveTipo(String placa) {
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+	    paramSource.addValue("placa", placa);
+	    
+	    return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlCantidadVehiculo,paramSource, String.class);
 	}
 
 }
