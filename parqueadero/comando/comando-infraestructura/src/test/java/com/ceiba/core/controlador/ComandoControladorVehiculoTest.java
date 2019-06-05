@@ -39,7 +39,7 @@ public class ComandoControladorVehiculoTest {
         ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(post("/vehiculos/ingresar")
+        mocMvc.perform(post("/vehiculo/ingresar")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(vehiculo)))
         		.andExpect(status().isOk());
@@ -52,7 +52,7 @@ public class ComandoControladorVehiculoTest {
         ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/vehiculos/actualizar/{placa}",placa)
+        mocMvc.perform(put("/vehiculo/actualizar/{placa}",placa)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(vehiculo)))
         		.andExpect(status().isOk());
@@ -64,7 +64,7 @@ public class ComandoControladorVehiculoTest {
         String placa = "abc123";
 
         // act - assert
-        mocMvc.perform(delete("/vehiculos/eliminar/{placa}",placa)
+        mocMvc.perform(delete("/vehiculo/eliminar/{placa}",placa)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());

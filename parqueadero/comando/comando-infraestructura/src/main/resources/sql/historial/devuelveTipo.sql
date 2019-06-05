@@ -1,1 +1,1 @@
-SELECT tipo FROM vehiculo WHERE placa = :placa
+SELECT 'tipo' FROM vehiculo WHERE placa = :placa

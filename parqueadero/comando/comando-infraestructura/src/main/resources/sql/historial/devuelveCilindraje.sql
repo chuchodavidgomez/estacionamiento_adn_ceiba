@@ -1,0 +1,1 @@
+SELECT cilindraje FROM vehiculo WHERE placa = :placa

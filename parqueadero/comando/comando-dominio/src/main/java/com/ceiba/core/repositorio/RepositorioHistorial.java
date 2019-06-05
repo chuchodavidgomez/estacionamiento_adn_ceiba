@@ -14,7 +14,7 @@ public interface RepositorioHistorial {
 	 * Permite actualizar un historial
 	 * @param historial
 	 */
-    void actualizar(Historial historial);
+    Double actualizar(Historial historial);
     
     /**
      * Permite eliminar un historial
@@ -49,9 +49,11 @@ public interface RepositorioHistorial {
      * @return tipo
      */
 	String devuelveTipo(String placa);
-	
-	/*
-	 * https://github.com/hildyale/Ceiba-Parqueadero/blob/master/src/main/java/co/com/ceiba/ceibaParqueadero/dominio/validaciones/CarroValidador.java
-	 * https://github.com/hildyale/Ceiba-Parqueadero/blob/master/src/main/java/co/com/ceiba/ceibaParqueadero/dominio/validaciones/CarroValidador.java
-	 */
+
+	/**
+     * devuelve el cilindraje del vehiculo
+     * @param placa
+     * @return cilindraje
+     */
+	int devuelveCilindraje(String placa);
 }

@@ -33,6 +33,9 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 	@SqlStatement(namespace="historial", value="devuelveTipo") 
 	private String sqldevuelveTipo;
 	
+	@SqlStatement(namespace="historial", value="devuelveCilindraje") 
+	private String sqldevuelveCilindraje;
+	
 	public RepositorioHistorialMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
 		this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
 	}
@@ -43,8 +46,9 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 	}
 
 	@Override
-	public void actualizar(Historial historial) {
+	public Double actualizar(Historial historial) {
 		this.customNamedParameterJdbcTemplate.actualizar(historial, this.sqlActualizar);		
+		return historial.getPago();
 	}
 
 	@Override
@@ -83,7 +87,15 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 	    paramSource.addValue("placa", placa);
 	    
-	    return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlCantidadVehiculo,paramSource, String.class);
+	    return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqldevuelveTipo,paramSource, String.class);
+	}
+
+	@Override
+	public int devuelveCilindraje(String placa) {
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+	    paramSource.addValue("placa", placa);
+	    
+	    return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqldevuelveCilindraje,paramSource, Integer.class);
 	}
 
 }
