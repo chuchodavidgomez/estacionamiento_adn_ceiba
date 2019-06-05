@@ -7,15 +7,15 @@ import com.ceiba.core.modelo.historial.Historial;
 import com.ceiba.core.repositorio.RepositorioHistorial;
 
 public class ServicioActualizarHistorial {
-	private static double VALOR_HORA_AUTO = 1000;
-	private static double VALOR_HORA_MOTO = 500;
-	private static double VALOR_DIA_AUTO = 8000;
-	private static double VALOR_DIA_MOTO = 500;
-	private static double VALOR_CILINDRAJE = 2000;
-	private static double MINIMAS_HORAS = 9;
-	private static int HORAS_DIA = 24;
-	private static int CILINDRAJE_MAXIMO = 500;
-	private static String MOTO = "moto";
+	private static final double VALOR_HORA_AUTO = 1000;
+	private static final double VALOR_HORA_MOTO = 500;
+	private static final double VALOR_DIA_AUTO = 8000;
+	private static final double VALOR_DIA_MOTO = 500;
+	private static final double VALOR_CILINDRAJE = 2000;
+	private static final double MINIMAS_HORAS = 9;
+	private static final int HORAS_DIA = 24;
+	private static final int CILINDRAJE_MAXIMO = 500;
+	private static final String MOTO = "moto";
 	
 	private final RepositorioHistorial repositorioHistorial;
 
