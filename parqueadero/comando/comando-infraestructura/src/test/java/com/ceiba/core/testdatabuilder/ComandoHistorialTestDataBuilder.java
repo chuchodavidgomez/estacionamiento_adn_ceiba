@@ -12,10 +12,10 @@ public class ComandoHistorialTestDataBuilder {
 	private double precio;	
     
     public ComandoHistorialTestDataBuilder() {	
-		placaVehiculo = "aaa111";
+		placaVehiculo = "baa111";
 		fechaIngreso = LocalDateTime.now();
 		fechaSalida = LocalDateTime.now().plusDays(1);
-		precio = 10000;
+		precio = 0;
 	}
        
     public ComandoHistorialTestDataBuilder conPlacaVehiculo(String tipo) {

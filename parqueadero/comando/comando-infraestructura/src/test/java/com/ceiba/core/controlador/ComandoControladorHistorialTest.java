@@ -57,6 +57,7 @@ public class ComandoControladorHistorialTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(Historial)))
         		.andExpect(status().isOk());
+        		//.andExpect(content().("{'pago': 8000}"));
     }
     
     @Test

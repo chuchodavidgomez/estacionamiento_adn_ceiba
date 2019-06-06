@@ -44,9 +44,9 @@ public class ComandoControladorHistorial {
 	
 	@PutMapping(value="/actualizar/{id}")
 	@ApiOperation("Actualizar historial")
-	public void actualizar(@RequestBody ComandoHistorial comandoHistorial, @PathVariable Long id) {
+	public ComandoRespuesta<Double> actualizar(@RequestBody ComandoHistorial comandoHistorial, @PathVariable Long id) {
 		comandoHistorial.setId(id);
-		manejadorActualizarHistorial.ejecutar(comandoHistorial);
+		return manejadorActualizarHistorial.ejecutar(comandoHistorial);
 	}
 	
 

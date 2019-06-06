@@ -24,17 +24,19 @@ public class ServicioActualizarHistorial {
         this.repositorioHistorial = repositorioHistorial;
     }
 
-    public void ejecutar(Historial historial) {    	    	
-    	LocalDateTime fechaSalida = LocalDateTime.now();    	
+    public Double ejecutar(Historial historial) { 
+    	LocalDateTime fechaSalida = historial.getFechaSalida(); 
+    	if(historial.getFechaSalida() == null) {
+    		fechaSalida = LocalDateTime.now(); 
+    	}    	   	
     	Double pago = calcularPago(historial.getFechaIngreso(),fechaSalida,historial.getPlaca()); 
-        this.repositorioHistorial.actualizar(new Historial(historial.getId(),historial.getPlaca(),historial.getFechaIngreso(),fechaSalida,pago));
+        return this.repositorioHistorial.actualizar(new Historial(historial.getId(),historial.getPlaca(),historial.getFechaIngreso(),fechaSalida,pago));
     }
     
     public Double calcularPago(LocalDateTime fechaIngreso, LocalDateTime fechaSalida, String placa) {
     	double pago = 0;
     	
     	int cilindraje = this.repositorioHistorial.devuelveCilindraje(placa);
-		//String tipo = this.repositorioHistorial.devuelveTipo(placa);	
     	String tipo = devuelveTipoDeVehiculo(placa);
 		int horas = obtenerHorasTrascurridas(fechaIngreso, fechaSalida);
 		

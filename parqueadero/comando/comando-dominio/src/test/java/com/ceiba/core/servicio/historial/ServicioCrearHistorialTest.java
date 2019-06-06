@@ -12,6 +12,7 @@ import com.ceiba.core.BasePrueba;
 import com.ceiba.core.dominio.excepcion.ExcepcionValorObligatorio;
 import com.ceiba.core.dominio.excepcion.ExcepcionDiaNoHabil;
 import com.ceiba.core.dominio.excepcion.ExcepcionDuplicidad;
+import com.ceiba.core.dominio.excepcion.ExcepcionEstaParqueado;
 import com.ceiba.core.dominio.excepcion.ExcepcionExcedeCantidad;
 import com.ceiba.core.modelo.historial.Historial;
 import com.ceiba.core.repositorio.RepositorioHistorial;
@@ -29,11 +30,14 @@ public class ServicioCrearHistorialTest {
     }
 	
 	@Test
-    public void validarIngresarFechaIngreso() {
+    public void validarVehiculoParqueadoTest() {
         // arrange
-    	HistorialTestDataBuilder HistorialTestDataBuilder = new HistorialTestDataBuilder().conFechaIngreso(null);
+		Historial Historial = new HistorialTestDataBuilder().build();
+    	RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);
+    	Mockito.when(repositorioHistorial.estaParqueado(Mockito.anyString())).thenReturn(true);
+    	ServicioCrearHistorial servicioCrearHistorial = new ServicioCrearHistorial(repositorioHistorial);
         // act - assert
-        BasePrueba.assertThrows(() -> HistorialTestDataBuilder.build(), ExcepcionValorObligatorio.class, "Se debe ingresar la fecha de ingreso");
+        BasePrueba.assertThrows(() -> servicioCrearHistorial.ejecutar(Historial), ExcepcionEstaParqueado.class, "El vehiculo ya esta parqueado");
     }
 	
 	@Test

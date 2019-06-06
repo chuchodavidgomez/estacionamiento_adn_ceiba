@@ -47,7 +47,7 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 
 	@Override
 	public Double actualizar(Historial historial) {
-		this.customNamedParameterJdbcTemplate.actualizar(historial, this.sqlActualizar);		
+		this.customNamedParameterJdbcTemplate.actualizar(historial, this.sqlActualizar);				
 		return historial.getPago();
 	}
 

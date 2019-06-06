@@ -1,0 +1,1 @@
+select pago from historial where id = :id;

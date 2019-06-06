@@ -1,1 +1,1 @@
-select count(1) from historial where id = :id and pago = 0;
+select count(1) from historial where placaVehiculo = :placaVehiculo and pago = 0 and fechaSalida is null;

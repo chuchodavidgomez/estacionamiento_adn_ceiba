@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import com.ceiba.core.dominio.excepcion.ExcepcionDiaNoHabil;
 import com.ceiba.core.dominio.excepcion.ExcepcionDuplicidad;
+import com.ceiba.core.dominio.excepcion.ExcepcionEstaParqueado;
 import com.ceiba.core.dominio.excepcion.ExcepcionExcedeCantidad;
 import com.ceiba.core.modelo.historial.Historial;
 import com.ceiba.core.repositorio.RepositorioHistorial;
@@ -14,6 +15,7 @@ public class ServicioCrearHistorial {
 	private static final String NO_HAY_CUPOS_DISPONIBLES_PARA_MOTO = "No hay cupos disponibles para moto";
 	private static final String NO_HAY_CUPOS_DISPONIBLES_PARA_AUTO = "No hay cupos disponibles para autos";
 	private static final String NO_PUEDE_INGRESAR_DIA_NO_HABIL = "No puede ingresar, dia no habil";
+	private static final String El_VEHICULO_YA_ESTA_PARQUEADO = "El vehiculo ya esta parqueado";
 	private static final String MOTO = "moto";
 	private static final String AUTO = "auto";
 	private static final String LETRA_A = "a";
@@ -23,14 +25,29 @@ public class ServicioCrearHistorial {
 	private final RepositorioHistorial repositorioHistorial;
 	
 	public ServicioCrearHistorial(RepositorioHistorial repositorioHistorial) {
+		
 		this.repositorioHistorial = repositorioHistorial;
 	}
 	
 	public Long ejecutar(Historial historial) {
+		LocalDateTime fechaIngreso = historial.getFechaIngreso(); 
+		System.out.println();
+    	if(historial.getFechaSalida() == null) {
+    		fechaIngreso = LocalDateTime.now(); 
+    	} 
 		validarExistenciaPrevia(historial);
 		validarCupos(historial);
 		validarPlaca(historial.getPlaca(), LocalDateTime.now().getDayOfWeek());
-		return this.repositorioHistorial.crear(historial);
+		validarParqueado(historial.getPlaca());
+		return this.repositorioHistorial.crear(new Historial(historial.getId(),historial.getPlaca(),fechaIngreso,historial.getFechaSalida(),historial.getPago()));
+	}
+	
+	private void validarParqueado(String placa) {
+		boolean estaParqueado = this.repositorioHistorial.estaParqueado(placa);
+		if(estaParqueado) {
+			throw new ExcepcionEstaParqueado(El_VEHICULO_YA_ESTA_PARQUEADO);
+		}
+		
 	}
 	
 	private void validarExistenciaPrevia(Historial historial) {

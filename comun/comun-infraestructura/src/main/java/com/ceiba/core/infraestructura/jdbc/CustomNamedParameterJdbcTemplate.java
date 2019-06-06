@@ -41,6 +41,13 @@ public class CustomNamedParameterJdbcTemplate {
 		this.namedParameterJdbcTemplate.update(sql, paramSource);
 	}
 	
+	public Double  actualizar2(Object object,String sql) {
+		MapSqlParameterSource paramSource = crearParametros(object);
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		this.namedParameterJdbcTemplate.update(sql, paramSource, keyHolder);
+		return 0.0;
+	}
+	
 	private MapSqlParameterSource crearParametros(Object object) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		Field[] fields = object.getClass().getDeclaredFields();

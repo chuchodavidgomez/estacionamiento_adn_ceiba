@@ -16,7 +16,7 @@ public class MapeoHistorial implements RowMapper<DtoHistorial>,MapperResult {
         
     	Long id = resultSet.getLong("id");
         String placaVehiculo = resultSet.getString("placaVehiculo");
-        LocalDateTime fechaIngreso = extraerLocalDateTime(resultSet, "fechaSalida");
+        LocalDateTime fechaIngreso = extraerLocalDateTime(resultSet, "fechaIngreso");
         LocalDateTime fechaSalida = extraerLocalDateTime(resultSet, "fechaSalida");
         Double pago = resultSet.getDouble("pago");
         return new DtoHistorial(id,placaVehiculo,fechaIngreso,fechaSalida,pago);
