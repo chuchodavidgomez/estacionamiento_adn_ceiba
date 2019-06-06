@@ -10,12 +10,13 @@ public class ServicioActualizarHistorial {
 	private static final double VALOR_HORA_AUTO = 1000;
 	private static final double VALOR_HORA_MOTO = 500;
 	private static final double VALOR_DIA_AUTO = 8000;
-	private static final double VALOR_DIA_MOTO = 500;
+	private static final double VALOR_DIA_MOTO = 4000;
 	private static final double VALOR_CILINDRAJE = 2000;
 	private static final double MINIMAS_HORAS = 9;
 	private static final int HORAS_DIA = 24;
 	private static final int CILINDRAJE_MAXIMO = 500;
 	private static final String MOTO = "moto";
+	private static final String AUTO = "auto";
 	
 	private final RepositorioHistorial repositorioHistorial;
 
@@ -29,11 +30,12 @@ public class ServicioActualizarHistorial {
         this.repositorioHistorial.actualizar(new Historial(historial.getId(),historial.getPlaca(),historial.getFechaIngreso(),fechaSalida,pago));
     }
     
-    private Double calcularPago(LocalDateTime fechaIngreso, LocalDateTime fechaSalida, String placa) {
+    public Double calcularPago(LocalDateTime fechaIngreso, LocalDateTime fechaSalida, String placa) {
     	double pago = 0;
     	
     	int cilindraje = this.repositorioHistorial.devuelveCilindraje(placa);
-		String tipo = this.repositorioHistorial.devuelveTipo(placa);				
+		//String tipo = this.repositorioHistorial.devuelveTipo(placa);	
+    	String tipo = devuelveTipoDeVehiculo(placa);
 		int horas = obtenerHorasTrascurridas(fechaIngreso, fechaSalida);
 		
 		if(tipo.equals(MOTO)) {
@@ -85,7 +87,7 @@ public class ServicioActualizarHistorial {
 					
     }
     
-    private int obtenerHorasTrascurridas(LocalDateTime fechaIngreso,LocalDateTime fechaSalida) {
+    public int obtenerHorasTrascurridas(LocalDateTime fechaIngreso,LocalDateTime fechaSalida) {
     	
     	long segundos = (fechaSalida.atZone(ZoneId.of("America/Bogota")).toInstant().toEpochMilli() - fechaIngreso.atZone(ZoneId.of("America/Bogota")).toInstant().toEpochMilli()) / 1000;
 		int horas = (int) (segundos / 3600);    
@@ -105,5 +107,14 @@ public class ServicioActualizarHistorial {
 		}
 		return horas;
     }
+    
+    public String devuelveTipoDeVehiculo(String placa) {
+		char ultimoDigito = placa.charAt(placa.length()-1);
+		if(Character.isDigit(ultimoDigito)) {
+			return AUTO;
+		}else {
+			return MOTO;
+		}
+	}
 		
 }
