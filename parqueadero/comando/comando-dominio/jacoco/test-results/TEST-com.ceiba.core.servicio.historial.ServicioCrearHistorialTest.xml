@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-06-05T21:32:59" hostname="JESUS-GOMEZ" time="0.479">
+<testsuite name="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2019-06-06T13:12:59" hostname="JESUS-GOMEZ" time="0.48">
   <properties/>
-  <testcase name="validarSiEsDomingoTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.438"/>
+  <testcase name="validarTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.41"/>
+  <testcase name="validarSiEsDomingoTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.0"/>
+  <testcase name="validarCuposDisponiblesMotoTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.047"/>
+  <testcase name="validarSiEsAutoTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.001"/>
   <testcase name="validarLetraTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.001"/>
-  <testcase name="validarIngresarFechaIngreso" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.022"/>
-  <testcase name="validarIngresarFechaNoHabil" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.012"/>
-  <testcase name="validarHistorialExistentePrevioTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.002"/>
-  <testcase name="validarIngresarPlacaTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.002"/>
+  <testcase name="validarIngresarFechaIngreso" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.002"/>
+  <testcase name="validarHistorialExistentePrevioTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.006"/>
+  <testcase name="validarCuposDisponiblesAutoTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.003"/>
+  <testcase name="validarIngresarPlacaTest" classname="com.ceiba.core.servicio.historial.ServicioCrearHistorialTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

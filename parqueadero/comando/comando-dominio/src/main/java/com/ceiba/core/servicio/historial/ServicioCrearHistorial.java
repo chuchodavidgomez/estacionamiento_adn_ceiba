@@ -15,6 +15,7 @@ public class ServicioCrearHistorial {
 	private static final String NO_HAY_CUPOS_DISPONIBLES_PARA_AUTO = "No hay cupos disponibles para autos";
 	private static final String NO_PUEDE_INGRESAR_DIA_NO_HABIL = "No puede ingresar, dia no habil";
 	private static final String MOTO = "moto";
+	private static final String AUTO = "auto";
 	private static final String LETRA_A = "a";
 	private static final Integer NUMERO_MAXIMO_AUTO = 20;
 	private static final Integer NUMERO_MAXIMO_MOTO = 10;
@@ -28,7 +29,7 @@ public class ServicioCrearHistorial {
 	public Long ejecutar(Historial historial) {
 		validarExistenciaPrevia(historial);
 		validarCupos(historial);
-		validarPlaca(historial.getPlaca());
+		validarPlaca(historial.getPlaca(), LocalDateTime.now().getDayOfWeek());
 		return this.repositorioHistorial.crear(historial);
 	}
 	
@@ -41,7 +42,7 @@ public class ServicioCrearHistorial {
 	
 	private void validarCupos(Historial historial) {
 		//String tipo = this.repositorioHistorial.devuelveTipo(historial.getPlaca());
-		String tipo = "moto";
+		String tipo = devuelveTipoDeVehiculo(historial.getPlaca());
 		int cantidadVehiculos = this.repositorioHistorial.cantidadVehiculos(tipo);
 		
 		if(tipo.equals(MOTO)) {
@@ -54,11 +55,19 @@ public class ServicioCrearHistorial {
 			}
 		}
 	}
-	
-	private void validarPlaca(String placa) {
-		DayOfWeek dayOfToday = LocalDateTime.now().getDayOfWeek();
+		
+	public void validarPlaca(String placa, DayOfWeek dayOfToday) {
 		if(validaPrimeraLetra(placa) && esLunesODomingo(dayOfToday)) {
 			throw new ExcepcionDiaNoHabil(NO_PUEDE_INGRESAR_DIA_NO_HABIL);
+		}
+	}
+	
+	public String devuelveTipoDeVehiculo(String placa) {
+		char ultimoDigito = placa.charAt(placa.length()-1);
+		if(Character.isDigit(ultimoDigito)) {
+			return AUTO;
+		}else {
+			return MOTO;
 		}
 	}
 	
