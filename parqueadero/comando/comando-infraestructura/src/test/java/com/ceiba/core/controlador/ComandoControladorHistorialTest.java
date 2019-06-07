@@ -49,15 +49,15 @@ public class ComandoControladorHistorialTest {
     @Test
     public void actualizar() throws Exception{
         // arrange
-    	Long id = 2L;
+    	//Long id = 1;
         ComandoHistorial Historial = new ComandoHistorialTestDataBuilder().build();
 
         // act - assert
-        mocMvc.perform(put("/historial/actualizar/{id}",id)
+        mocMvc.perform(put("/historial/actualizar/{id}",1)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(Historial)))
         		.andExpect(status().isOk());
-        		//.andExpect(content().("{'pago': 8000}"));
+        		//.andExpect(content().json("{'valor': 8000}"));
     }
     
     @Test

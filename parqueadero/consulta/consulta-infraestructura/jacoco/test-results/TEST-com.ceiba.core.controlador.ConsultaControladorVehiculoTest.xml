@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ceiba.core.controlador.ConsultaControladorVehiculoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-06-07T09:29:51" hostname="Jesus-PC" time="0.024">
+  <properties/>
+  <testcase name="listar" classname="com.ceiba.core.controlador.ConsultaControladorVehiculoTest" time="0.024"/>
+  <system-out><![CDATA[2019-06-07 04:29:48.440  INFO 15232 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.ceiba.core.controlador.ConsultaControladorVehiculoTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-06-07 04:29:48.460  INFO 15232 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-06-07 04:29:48.464  INFO 15232 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7ab583d0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3fb2a0ad, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1df77419, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@488ae3a9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ef7426b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@34ea2ed0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@129bc3e8, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@d13fdb9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@29d3026a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4c2a352e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@623bc0, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@120ee040]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.2.RELEASE)
+
+2019-06-07 04:29:48.555  INFO 15232 --- [    Test worker] c.c.c.c.ConsultaControladorVehiculoTest  : Starting ConsultaControladorVehiculoTest on Jesus-PC with PID 15232 (started by Jesus Gomez in C:\Users\Jesus Gomez\eclipse-workspace\estacionamiento_adn_ceiba\parqueadero\consulta\consulta-infraestructura)
+2019-06-07 04:29:48.560  INFO 15232 --- [    Test worker] c.c.c.c.ConsultaControladorVehiculoTest  : No active profile set, falling back to default profiles: default
+2019-06-07 04:29:49.480  INFO 15232 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : pool - Starting...
+2019-06-07 04:29:49.484  INFO 15232 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : pool - Start completed.
+2019-06-07 04:29:50.470  INFO 15232 --- [    Test worker] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-06-07 04:29:50.479  INFO 15232 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2019-06-07 04:29:50.497  INFO 15232 --- [    Test worker] o.f.c.internal.database.DatabaseFactory  : Database: jdbc:h2:mem:testdb (H2 1.4)
+2019-06-07 04:29:50.550  INFO 15232 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.036s)
+2019-06-07 04:29:50.645  INFO 15232 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": 1.1
+2019-06-07 04:29:50.646  INFO 15232 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Schema "PUBLIC" is up to date. No migration necessary.
+2019-06-07 04:29:51.069  INFO 15232 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-07 04:29:51.476  INFO 15232 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2019-06-07 04:29:51.478  INFO 15232 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2019-06-07 04:29:51.502  INFO 15232 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 23 ms
+2019-06-07 04:29:51.576  INFO 15232 --- [    Test worker] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-06-07 04:29:51.578  INFO 15232 --- [    Test worker] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-06-07 04:29:51.594  INFO 15232 --- [    Test worker] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-06-07 04:29:51.654  INFO 15232 --- [    Test worker] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: listarUsingGET_1
+2019-06-07 04:29:51.661  INFO 15232 --- [    Test worker] c.c.c.c.ConsultaControladorVehiculoTest  : Started ConsultaControladorVehiculoTest in 3.186 seconds (JVM running for 24.716)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

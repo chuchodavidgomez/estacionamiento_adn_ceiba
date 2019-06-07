@@ -13,9 +13,9 @@ public class ComandoHistorialTestDataBuilder {
     
     public ComandoHistorialTestDataBuilder() {	
 		placaVehiculo = "baa111";
-		fechaIngreso = LocalDateTime.now();
-		fechaSalida = LocalDateTime.now().plusDays(1);
-		precio = 0;
+		fechaIngreso = LocalDateTime.of(2019, 6, 5, 5, 30, 45, 0);
+		fechaSalida = LocalDateTime.of(2019, 6, 6, 5, 30, 45, 0);
+		precio = 8000;
 	}
        
     public ComandoHistorialTestDataBuilder conPlacaVehiculo(String tipo) {

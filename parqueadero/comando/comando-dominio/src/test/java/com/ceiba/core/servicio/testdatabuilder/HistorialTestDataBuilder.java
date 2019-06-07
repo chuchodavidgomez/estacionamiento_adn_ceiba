@@ -12,7 +12,7 @@ public class HistorialTestDataBuilder {
 	private double precio;	
     
     public HistorialTestDataBuilder() {	
-		placaVehiculo = "aaa123";
+		placaVehiculo = "baa123";
 		fechaIngreso = LocalDateTime.of(2019, 6, 5, 5, 30, 45, 0);
 		fechaSalida = LocalDateTime.of(2019, 6, 6, 5, 30, 45, 0);
 		precio = 10000;

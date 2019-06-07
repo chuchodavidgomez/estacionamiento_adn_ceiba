@@ -2,6 +2,7 @@ package com.ceiba.core.controlador;
 
 import java.util.List;
 
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +14,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
+//@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RequestMapping("/vehiculos") 
 @Api(tags={"Controlador consulta vehiculos"}) 
 public class ConsultaControladorVehiculo {
@@ -22,7 +24,7 @@ public class ConsultaControladorVehiculo {
 	public ConsultaControladorVehiculo(ManejadorListarVehiculos manejadorListarVehiculos) {
 		this.manejadorListarVehiculos = manejadorListarVehiculos;
 	}
-
+	
 	@GetMapping
 	@ApiOperation("Listar vehiculo")
 	public List<DtoVehiculo> listar() {

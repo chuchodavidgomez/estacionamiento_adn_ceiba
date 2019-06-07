@@ -31,7 +31,6 @@ public class ServicioCrearHistorial {
 	
 	public Long ejecutar(Historial historial) {
 		LocalDateTime fechaIngreso = historial.getFechaIngreso(); 
-		System.out.println();
     	if(historial.getFechaSalida() == null) {
     		fechaIngreso = LocalDateTime.now(); 
     	} 
@@ -57,8 +56,7 @@ public class ServicioCrearHistorial {
     	}
 	}
 	
-	private void validarCupos(Historial historial) {
-		//String tipo = this.repositorioHistorial.devuelveTipo(historial.getPlaca());
+	private void validarCupos(Historial historial) {		
 		String tipo = devuelveTipoDeVehiculo(historial.getPlaca());
 		int cantidadVehiculos = this.repositorioHistorial.cantidadVehiculos(tipo);
 		
