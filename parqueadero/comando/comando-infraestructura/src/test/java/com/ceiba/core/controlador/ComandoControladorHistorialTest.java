@@ -6,6 +6,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.time.LocalDateTime;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +45,7 @@ public class ComandoControladorHistorialTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(Historial)))
         		.andExpect(status().isOk())
-        		.andExpect(content().json("{'valor': 1}"));
+        		.andExpect(content().json("{'valor': 4}"));
     }
     
     @Test
@@ -56,9 +58,52 @@ public class ComandoControladorHistorialTest {
         mocMvc.perform(put("/historial/actualizar/{id}",1)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(Historial)))
-        		.andExpect(status().isOk());
-        		//.andExpect(content().json("{'valor': 8000}"));
+        		.andExpect(status().isOk())
+        		.andExpect(content().json("{'valor': 8000}"));
     }
+    
+    @Test
+    public void actualizar24EnParqueaderoAuto() throws Exception{
+        // arrange
+    	Long id = (long) 1;
+        ComandoHistorial Historial = new ComandoHistorialTestDataBuilder().conFechaIngreso(LocalDateTime.now()).conFechaSalida(LocalDateTime.now().plusDays(1)).build();
+
+        // act - assert
+        mocMvc.perform(put("/historial/actualizar/{id}",id)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsString(Historial)))
+        		.andExpect(status().isOk())
+        		.andExpect(content().json("{'valor': 8000}"));
+    }
+    
+    @Test
+    public void actualizar24EnParqueaderoMoto() throws Exception{
+        // arrange
+    	Long id = (long) 3;
+        ComandoHistorial Historial = new ComandoHistorialTestDataBuilder().conFechaIngreso(LocalDateTime.now()).conFechaSalida(LocalDateTime.now().plusDays(1)).conPlacaVehiculo("baa11e").build();
+
+        // act - assert
+        mocMvc.perform(put("/historial/actualizar/{id}",id)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsString(Historial)))
+        		.andExpect(status().isOk())
+        		.andExpect(content().json("{'valor': 4000}"));
+    }
+    
+    @Test
+    public void actualizar24EnParqueaderoMotoConCilindraje600() throws Exception{
+        // arrange
+    	Long id = (long) 3;
+        ComandoHistorial Historial = new ComandoHistorialTestDataBuilder().conFechaIngreso(LocalDateTime.now()).conFechaSalida(LocalDateTime.now().plusDays(1)).conPlacaVehiculo("baa12e").build();
+
+        // act - assert
+        mocMvc.perform(put("/historial/actualizar/{id}",id)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsString(Historial)))
+        		.andExpect(status().isOk())
+        		.andExpect(content().json("{'valor': 6000}"));
+    }
+    
     
     @Test
     public void eliminar() throws Exception {

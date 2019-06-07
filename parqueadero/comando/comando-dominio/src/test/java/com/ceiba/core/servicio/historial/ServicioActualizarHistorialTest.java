@@ -98,7 +98,7 @@ public class ServicioActualizarHistorialTest {
 	}
 	
 	@Test
-	public void calcularPago1DiaMotoConCilindraje500Test() {
+	public void calcularPago1DiaMotoConCilindraje600Test() {
 		//arrange
 		String placa = "bbc15a";
     	RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);

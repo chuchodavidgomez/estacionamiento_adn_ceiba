@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-06-07T09:28:46" hostname="Jesus-PC" time="0.068">
+<testsuite name="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-06-07T13:12:56" hostname="JESUS-GOMEZ" time="0.034">
   <properties/>
-  <testcase name="validarPlacaLongitud6Test" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.002"/>
-  <testcase name="validarIngresarTipo" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.002"/>
+  <testcase name="validarPlacaLongitud6Test" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.005"/>
+  <testcase name="validarIngresarTipo" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.005"/>
   <testcase name="validarIngresarModelo" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.001"/>
-  <testcase name="validarVehiculoExistenciaPreviaTest" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.045"/>
-  <testcase name="validarIngresarMarca" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.003"/>
-  <testcase name="validarIngresarPlaca" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.006"/>
+  <testcase name="validarVehiculoExistenciaPreviaTest" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.016"/>
+  <testcase name="validarIngresarMarca" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.001"/>
+  <testcase name="validarIngresarPlaca" classname="com.ceiba.core.servicio.vehiculo.ServicioCrearVehiculoTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
