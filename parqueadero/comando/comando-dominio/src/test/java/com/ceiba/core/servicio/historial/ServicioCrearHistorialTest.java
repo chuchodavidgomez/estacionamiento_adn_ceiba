@@ -57,7 +57,6 @@ public class ServicioCrearHistorialTest {
         // arrange
 		Historial Historial = new HistorialTestDataBuilder().conPlacaVehiculo("abc12c").build();
     	RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);
-    	//Mockito.when(repositorioHistorial.devuelveTipo("aaabbb")).thenReturn("moto");
     	Mockito.when(repositorioHistorial.cantidadVehiculos("moto")).thenReturn(11);
     	ServicioCrearHistorial servicioCrearHistorial = new ServicioCrearHistorial(repositorioHistorial);
         // act - assert
@@ -69,7 +68,6 @@ public class ServicioCrearHistorialTest {
         // arrange
 		Historial Historial = new HistorialTestDataBuilder().conPlacaVehiculo("abc123").build();
     	RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);
-    	//Mockito.when(repositorioHistorial.devuelveTipo("aaabbb")).thenReturn("moto");
     	Mockito.when(repositorioHistorial.cantidadVehiculos("auto")).thenReturn(21);
     	ServicioCrearHistorial servicioCrearHistorial = new ServicioCrearHistorial(repositorioHistorial);
         // act - assert

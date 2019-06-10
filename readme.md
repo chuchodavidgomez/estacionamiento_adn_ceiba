@@ -40,7 +40,11 @@ Como cada microservicio se va realizar con CQRS, cada uno contiene su propia est
 Para importar el proyecto se recomienda usar Gradle en la versión 5.0, se debe importar desde la ruta *microservicio/build.gradle*
 Después de importar el proyecto se queda viendo de la siguiente manera 
 
-![enter image description here](https://drive.google.com/uc?id=1x2ZVpM2steX0Er-jDNoffQ_V6pRVdW0k)
+![enter image description here](https://github.com/chuchodavidgomez/estacionamiento_adn_ceiba/blob/master/init/estructura.png)
 
+
+### Modelo del proyecto
+
+![enter image description here](https://github.com/chuchodavidgomez/estacionamiento_adn_ceiba/blob/master/init/modelo.png)
 
 *Cualquier duda o aporte con este bloque contactar a juan.botero@ceiba.com.co o juan.castano@ceiba.com.co*
