@@ -18,7 +18,7 @@ import com.ceiba.core.manejador.ManejadorEliminarHistorial;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("/historial")
 public class ComandoControladorHistorial {
 	

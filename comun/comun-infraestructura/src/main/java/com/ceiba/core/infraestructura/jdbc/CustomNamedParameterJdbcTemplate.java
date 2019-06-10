@@ -23,17 +23,17 @@ public class CustomNamedParameterJdbcTemplate {
 	}
 	
 	
-	public Long crearR(Object object,String sql) {
+	public Long crearDevuelveId(Object object,String sql) {
 		MapSqlParameterSource paramSource = crearParametros(object);
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		this.namedParameterJdbcTemplate.update(sql, paramSource,keyHolder);
 		return keyHolder.getKey().longValue();
 	}
 	
-	public void crear(Object object,String sql) {
+	public int crear(Object object,String sql) {
 		MapSqlParameterSource paramSource = crearParametros(object);
 		KeyHolder keyHolder = new GeneratedKeyHolder();
-		this.namedParameterJdbcTemplate.update(sql, paramSource,keyHolder);		
+		return this.namedParameterJdbcTemplate.update(sql, paramSource,keyHolder);		
 	}
 	
 	public int actualizar(Object object,String sql) {

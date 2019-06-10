@@ -24,6 +24,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @ContextConfiguration(classes=ApplicationMock.class)
 @WebMvcTest(ComandoControladorVehiculo.class)
 public class ComandoControladorVehiculoTest {
+	
+	
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -48,7 +50,7 @@ public class ComandoControladorVehiculoTest {
     @Test
     public void actualizar() throws Exception{
         // arrange
-    	String placa = "abc123";
+    	String placa = "baa111";
         ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
 
         // act - assert

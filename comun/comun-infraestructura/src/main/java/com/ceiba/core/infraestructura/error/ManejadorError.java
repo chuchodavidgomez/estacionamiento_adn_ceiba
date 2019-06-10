@@ -14,6 +14,7 @@ import com.ceiba.core.dominio.excepcion.ExcepcionDiaNoHabil;
 import com.ceiba.core.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.core.dominio.excepcion.ExcepcionEstaParqueado;
 import com.ceiba.core.dominio.excepcion.ExcepcionLongitudValor;
+import com.ceiba.core.dominio.excepcion.ExcepcionNoExistencia;
 import com.ceiba.core.dominio.excepcion.ExcepcionSinDatos;
 import com.ceiba.core.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.core.dominio.excepcion.ExcepcionValorObligatorio;
@@ -37,6 +38,7 @@ public class ManejadorError extends ResponseEntityExceptionHandler {
         CODIGOS_ESTADO.put(ExcepcionValorObligatorio.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
         CODIGOS_ESTADO.put(ExcepcionDuplicidad.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
         CODIGOS_ESTADO.put(ExcepcionTecnica.class.getSimpleName(), HttpStatus.INTERNAL_SERVER_ERROR.value());
+        CODIGOS_ESTADO.put(ExcepcionNoExistencia.class.getSimpleName(), HttpStatus.BAD_REQUEST.value());
         
         //en caso de tener otra excepcion matricularla aca
     }

@@ -30,7 +30,8 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo{
 	
 	@Override
 	public void crear(Vehiculo vehiculo) {
-		this.customNamedParameterJdbcTemplate.crear(vehiculo, this.sqlCrear);		
+			
+		System.out.println(this.customNamedParameterJdbcTemplate.crear(vehiculo, this.sqlCrear));
 	}
 
 	@Override

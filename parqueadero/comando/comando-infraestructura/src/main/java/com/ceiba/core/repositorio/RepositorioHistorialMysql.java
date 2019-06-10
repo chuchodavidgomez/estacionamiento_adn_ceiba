@@ -42,7 +42,7 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 	
 	@Override
 	public Long crear(Historial historial) {
-		return this.customNamedParameterJdbcTemplate.crearR(historial, sqlCrear);
+		return this.customNamedParameterJdbcTemplate.crearDevuelveId(historial, sqlCrear);
 	}
 
 	@Override

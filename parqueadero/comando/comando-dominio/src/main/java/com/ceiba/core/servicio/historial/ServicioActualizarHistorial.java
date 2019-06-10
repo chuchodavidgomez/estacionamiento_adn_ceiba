@@ -3,6 +3,7 @@ package com.ceiba.core.servicio.historial;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 
+import com.ceiba.core.dominio.excepcion.ExcepcionNoExistencia;
 import com.ceiba.core.modelo.historial.Historial;
 import com.ceiba.core.repositorio.RepositorioHistorial;
 
@@ -19,12 +20,14 @@ public class ServicioActualizarHistorial {
 	private static final String AUTO = "auto";
 	
 	private final RepositorioHistorial repositorioHistorial;
+	private final static String NO_EXISTE_UN_REGISTRO_CON_ESE_ID = "No existe un registro con ese id";
 
     public ServicioActualizarHistorial(RepositorioHistorial repositorioHistorial) {
         this.repositorioHistorial = repositorioHistorial;
     }
 
     public Double ejecutar(Historial historial) { 
+    	validarExistencia(historial.getId());
     	LocalDateTime fechaSalida = historial.getFechaSalida(); 
     	if(historial.getFechaSalida() == null) {
     		fechaSalida = LocalDateTime.now(); 
@@ -32,6 +35,13 @@ public class ServicioActualizarHistorial {
     	Double pago = calcularPago(historial.getFechaIngreso(),fechaSalida,historial.getPlaca()); 
         return this.repositorioHistorial.actualizar(new Historial(historial.getId(),historial.getPlaca(),historial.getFechaIngreso(),fechaSalida,pago));
     }
+    
+    private void validarExistencia(Long id) {
+		boolean existe = this.repositorioHistorial.existe(id);
+    	if(!existe) {
+    		throw new ExcepcionNoExistencia(NO_EXISTE_UN_REGISTRO_CON_ESE_ID);
+    	}
+	}
     
     public Double calcularPago(LocalDateTime fechaIngreso, LocalDateTime fechaSalida, String placa) {
     	double pago = 0;
@@ -48,9 +58,13 @@ public class ServicioActualizarHistorial {
 			
 			if(horas < MINIMAS_HORAS) {				
 				return pago + (VALOR_HORA_MOTO*horas);						
-			}else if(horas <= HORAS_DIA) {
-				return pago + VALOR_DIA_MOTO;
-			}else {
+			}
+			else {
+				
+				if(horas <= HORAS_DIA) {
+					return pago + VALOR_DIA_MOTO;
+				}
+				
 				int dias = (horas / HORAS_DIA);
 				horas = horas % HORAS_DIA;
 				if(horas < MINIMAS_HORAS) {

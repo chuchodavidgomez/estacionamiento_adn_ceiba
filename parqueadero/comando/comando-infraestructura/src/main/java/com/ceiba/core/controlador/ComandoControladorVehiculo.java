@@ -19,7 +19,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("/vehiculo")
 @Api(tags = { "Controlador comando vehiculo"})
 public class ComandoControladorVehiculo {
