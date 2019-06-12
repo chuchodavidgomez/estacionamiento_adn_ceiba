@@ -11,9 +11,9 @@ CREATE TABLE historial(id INT NOT NULL AUTO_INCREMENT,
   fechaIngreso DATETIME NOT NULL,
   fechaSalida DATETIME NULL,
   pago FLOAT NULL,
-  placaVehiculo VARCHAR(6) NOT NULL,
+  placaVehiculo VARCHAR(6) NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (placaVehiculo) REFERENCES vehiculo(placa)
-  ON DELETE NO ACTION
+  ON DELETE SET NULL
   ON UPDATE CASCADE
 );

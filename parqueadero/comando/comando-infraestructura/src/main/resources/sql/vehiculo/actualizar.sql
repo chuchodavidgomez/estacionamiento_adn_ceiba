@@ -5,4 +5,4 @@ set
 	cilindraje = :cilindraje, 
 	modelo = :modelo, 
 	marca = :marca	
-where placa = :placa
+where placa = :objectkey

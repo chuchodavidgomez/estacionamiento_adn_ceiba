@@ -45,7 +45,7 @@ public class ServicioCrearHistorialTest {
         // arrange
     	Historial Historial = new HistorialTestDataBuilder().build();
     	RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);
-    	Mockito.when(repositorioHistorial.existe(Mockito.anyLong())).thenReturn(true);
+    	Mockito.when(repositorioHistorial.existeHistorial(Mockito.anyLong())).thenReturn(true);
     	ServicioCrearHistorial servicioCrearHistorial = new ServicioCrearHistorial(repositorioHistorial);
         // act - assert
         BasePrueba.assertThrows(() -> servicioCrearHistorial.ejecutar(Historial), ExcepcionDuplicidad.class,"El historial ya existe en el sistema");

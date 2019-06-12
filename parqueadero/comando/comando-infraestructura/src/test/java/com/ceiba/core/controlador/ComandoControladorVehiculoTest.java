@@ -38,7 +38,7 @@ public class ComandoControladorVehiculoTest {
     @Test
     public void crear() throws Exception{
         // arrange
-        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().build();
+        ComandoVehiculo vehiculo = new ComandoVehiculoTestDataBuilder().conPlaca("yyy123").build();
 
         // act - assert
         mocMvc.perform(post("/vehiculo/ingresar")

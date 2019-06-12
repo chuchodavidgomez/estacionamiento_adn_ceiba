@@ -16,11 +16,11 @@ public class ServicioCrearVehiculo {
 
     public void ejecutar(Vehiculo vehiculo) {
     	validarExistenciaPrevia(vehiculo);
-        this.repositorioVehiculo.crear(vehiculo);
+        this.repositorioVehiculo.crearVehiculo(vehiculo);
     }
 
 	private void validarExistenciaPrevia(Vehiculo usuario) {
-		boolean existe = this.repositorioVehiculo.existe(usuario.getPlaca());
+		boolean existe = this.repositorioVehiculo.existeVehiculo(usuario.getPlaca());
     	if(existe) {
     		throw new ExcepcionDuplicidad(EL_VEHICULO_YA_EXISTE_EN_EL_SISTEMA);
     	}

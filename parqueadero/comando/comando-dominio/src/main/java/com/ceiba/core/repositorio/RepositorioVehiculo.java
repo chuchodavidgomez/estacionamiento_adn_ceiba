@@ -7,24 +7,24 @@ public interface RepositorioVehiculo {
 	 * Permite crear un vehiculo
 	 * @param vehiculo
 	 */
-    void crear(Vehiculo vehiculo);
+    void crearVehiculo(Vehiculo vehiculo);
     
     /**
 	 * Permite actualizar un vehiculo
 	 * @param vehiculo
 	 */
-    void actualizar(Vehiculo vehiculo);
+    void actualizarVehiculo(Vehiculo vehiculo, String placaKey);
     
     /**
      * Permite eliminar un vehiculo
      * @param placa
      */
-    void eliminar(String placa);
+    void eliminarVehiculo(String placa);
     
     /**
      * Permite validar si existe un vehiculo con esa placa
      * @param placa
      * @return si existe o no
      */
-    boolean existe(String placa);
+    boolean existeVehiculo(String placa);
 }

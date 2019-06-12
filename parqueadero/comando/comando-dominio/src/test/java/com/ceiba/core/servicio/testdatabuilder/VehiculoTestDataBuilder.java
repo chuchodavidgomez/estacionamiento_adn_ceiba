@@ -12,7 +12,7 @@ public class VehiculoTestDataBuilder {
     
     public VehiculoTestDataBuilder() {
 		placa = "abc123";
-		tipo = "moto";
+		tipo = "auto";
 		cilindraje = 500;
 		modelo = "y5";
 		marca = "yamaha";

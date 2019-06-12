@@ -10,6 +10,6 @@ public class ServicioEliminarHistorial {
 	}
 	
 	public void ejecutar(Long id) {
-		repositorioHistorial.eliminar(id);
+		repositorioHistorial.eliminarHistorial(id);
 	}
 }

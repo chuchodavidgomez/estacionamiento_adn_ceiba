@@ -38,7 +38,7 @@ public class ServicioCrearHistorial {
 		validarCupos(historial);
 		validarPlaca(historial.getPlaca(), LocalDateTime.now().getDayOfWeek());
 		validarParqueado(historial.getPlaca());
-		return this.repositorioHistorial.crear(new Historial(historial.getId(),historial.getPlaca(),fechaIngreso,historial.getFechaSalida(),historial.getPago()));
+		return this.repositorioHistorial.crearHistorial(new Historial(historial.getId(),historial.getPlaca(),fechaIngreso,historial.getFechaSalida(),historial.getPago()));
 	}
 	
 	private void validarParqueado(String placa) {
@@ -50,7 +50,7 @@ public class ServicioCrearHistorial {
 	}
 	
 	private void validarExistenciaPrevia(Historial historial) {
-		boolean existe = this.repositorioHistorial.existe(historial.getId());
+		boolean existe = this.repositorioHistorial.existeHistorial(historial.getId());
     	if(existe) {
     		throw new ExcepcionDuplicidad(EL_HISTORIAL_YA_EXISTE_EN_EL_SISTEMA);
     	}

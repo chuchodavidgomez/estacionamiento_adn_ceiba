@@ -3,6 +3,7 @@ package com.ceiba.core.repositorio;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import com.ceiba.core.infraestructura.excepcion.ExcepcionTecnica;
 import com.ceiba.core.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.core.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.core.modelo.historial.Historial;
@@ -11,6 +12,7 @@ import com.ceiba.core.modelo.historial.Historial;
 public class RepositorioHistorialMysql implements RepositorioHistorial{
 
 	private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
+	private final static String OCURRIO_UN_ERROR_INESPERADO_ACTUALIZANDO_EL_HISTORIAL = "Ocurrio un error inesperador actualizando el historial";
 	
 	@SqlStatement(namespace="historial", value="crear")
 	private String sqlCrear;
@@ -41,18 +43,23 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 	}
 	
 	@Override
-	public Long crear(Historial historial) {
+	public Long crearHistorial(Historial historial) {
 		return this.customNamedParameterJdbcTemplate.crearDevuelveId(historial, sqlCrear);
 	}
 
 	@Override
-	public Double actualizar(Historial historial) {
-		int i = this.customNamedParameterJdbcTemplate.actualizar(historial, this.sqlActualizar);				
-		return (i==1)?historial.getPago():0.0;
+	public Double actualizarHistorial(Historial historial) {
+		int i = this.customNamedParameterJdbcTemplate.actualizar(historial, this.sqlActualizar);	
+		Double pago = 0.0;
+		if (i==1)
+			pago = historial.getPago();
+		else
+			new ExcepcionTecnica(OCURRIO_UN_ERROR_INESPERADO_ACTUALIZANDO_EL_HISTORIAL);
+		return pago;
 	}
 
 	@Override
-	public void eliminar(long id) {
+	public void eliminarHistorial(long id) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 	    paramSource.addValue("id", id);	    
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);		
@@ -67,7 +74,7 @@ public class RepositorioHistorialMysql implements RepositorioHistorial{
 	}
 
 	@Override
-	public boolean existe(Long id) {
+	public boolean existeHistorial(Long id) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 	    paramSource.addValue("id", id);
 	    

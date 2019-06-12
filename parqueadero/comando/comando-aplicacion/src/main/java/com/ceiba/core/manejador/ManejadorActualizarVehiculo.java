@@ -21,6 +21,6 @@ public class ManejadorActualizarVehiculo implements ManejadorComando<ComandoVehi
 
 	public void ejecutar(ComandoVehiculo comandoVehiculo) {
 		Vehiculo vehiculo = this.fabricaVehiculo.crear(comandoVehiculo);
-		this.servicioActualizarVehiculo.ejecutar(vehiculo);
+		this.servicioActualizarVehiculo.ejecutar(vehiculo, comandoVehiculo.getPlacaKey());
 	}
 }

@@ -8,19 +8,19 @@ public interface RepositorioHistorial {
 	 * @param historial
 	 * @return el id del historial
 	 */
-    Long crear(Historial historial);
+    Long crearHistorial(Historial historial);
     
     /**
 	 * Permite actualizar un historial
 	 * @param historial
 	 */
-    Double actualizar(Historial historial);
+    Double actualizarHistorial(Historial historial);
     
     /**
      * Permite eliminar un historial
      * @param id
      */
-    void eliminar(long id);
+    void eliminarHistorial(long id);
         
     /**
      * Permite validar si un vehiculo se encuentra parquedo
@@ -34,7 +34,7 @@ public interface RepositorioHistorial {
      * @param id
      * @return si existe o no
      */
-	boolean existe(Long id);
+	boolean existeHistorial(Long id);
 	
 	/**
      * devuelve la cantidad de vehiculos dependiendo del tipo

@@ -13,13 +13,13 @@ public class ServicioActualizarVehiculo {
         this.repositorioVehiculo = repositorioVehiculo;
     }
 
-    public void ejecutar(Vehiculo vehiculo) {    	
-    	validarExistencia(vehiculo);
-        this.repositorioVehiculo.actualizar(vehiculo);
+    public void ejecutar(Vehiculo vehiculo, String placaKey) {    	
+    	validarExistencia(placaKey);    	
+        this.repositorioVehiculo.actualizarVehiculo(vehiculo,placaKey);
     }
     
-    private void validarExistencia(Vehiculo usuario) {
-		boolean existe = this.repositorioVehiculo.existe(usuario.getPlaca());
+    private void validarExistencia(String placaKey) {
+		boolean existe = this.repositorioVehiculo.existeVehiculo(placaKey);
     	if(!existe) {
     		throw new ExcepcionNoExistencia(EL_VEHICULO_NO_EXISTE_EN_EL_SISTEMA);
     	}

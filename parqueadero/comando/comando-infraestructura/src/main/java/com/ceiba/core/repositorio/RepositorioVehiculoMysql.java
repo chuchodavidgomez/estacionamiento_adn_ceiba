@@ -29,25 +29,24 @@ public class RepositorioVehiculoMysql implements RepositorioVehiculo{
 	}
 	
 	@Override
-	public void crear(Vehiculo vehiculo) {
-			
-		System.out.println(this.customNamedParameterJdbcTemplate.crear(vehiculo, this.sqlCrear));
+	public void crearVehiculo(Vehiculo vehiculo) {			
+		this.customNamedParameterJdbcTemplate.crear(vehiculo, this.sqlCrear);
 	}
 
 	@Override
-	public void actualizar(Vehiculo vehiculo) {
-		this.customNamedParameterJdbcTemplate.actualizar(vehiculo, this.sqlActualizar);
+	public void actualizarVehiculo(Vehiculo vehiculo, String placaKey) {
+		this.customNamedParameterJdbcTemplate.actualizarConKey(vehiculo, placaKey, this.sqlActualizar);
 	}
 
 	@Override
-	public void eliminar(String placa) {
+	public void eliminarVehiculo(String placa) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 	    paramSource.addValue("placa", placa);	    
         this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, paramSource);		
 	}
 
 	@Override
-	public boolean existe(String placa) {
+	public boolean existeVehiculo(String placa) {
 		MapSqlParameterSource paramSource = new MapSqlParameterSource();
 		paramSource.addValue("placa", placa);
 		return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource, Boolean.class);

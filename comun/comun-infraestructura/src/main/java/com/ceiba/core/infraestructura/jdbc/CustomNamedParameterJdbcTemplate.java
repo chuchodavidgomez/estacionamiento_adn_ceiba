@@ -36,8 +36,13 @@ public class CustomNamedParameterJdbcTemplate {
 		return this.namedParameterJdbcTemplate.update(sql, paramSource,keyHolder);		
 	}
 	
+	public int actualizarConKey(Object object,String placaKey,String sql) {
+		MapSqlParameterSource paramSource = crearParametrosConClaveDiferente(object, placaKey);		
+		return this.namedParameterJdbcTemplate.update(sql, paramSource);		
+	}
+	
 	public int actualizar(Object object,String sql) {
-		MapSqlParameterSource paramSource = crearParametros(object);
+		MapSqlParameterSource paramSource = crearParametros(object);		
 		return this.namedParameterJdbcTemplate.update(sql, paramSource);		
 	}
 	
@@ -59,6 +64,29 @@ public class CustomNamedParameterJdbcTemplate {
 					paramSource.addValue(field.getName(), field.get(object));
 					field.setAccessible(false);
 				}
+			} catch (Exception e) {
+				throw new ExcepcionTecnica(ERROR_OBTENIENDO_EL_NOMBRE_Y_VALOR_DE_OBJETO, e);
+			} 
+		}
+		return paramSource;
+	}
+	
+	private MapSqlParameterSource crearParametrosConClaveDiferente(Object object, String objectkey) {
+		MapSqlParameterSource paramSource = new MapSqlParameterSource();
+		Field[] fields = object.getClass().getDeclaredFields();
+		for (int i = 0; i < fields.length + 1; i++) {
+			try {
+				Field field = null;
+				if(i != fields.length) {
+					field = fields[i];	
+					if (!Modifier.isStatic(field.getModifiers()) && !Modifier.isFinal(field.getModifiers())) {
+						field.setAccessible(true);
+						paramSource.addValue(field.getName(), field.get(object));
+						field.setAccessible(false);
+					}
+				}else {
+					paramSource.addValue("objectkey", objectkey);
+				}								
 			} catch (Exception e) {
 				throw new ExcepcionTecnica(ERROR_OBTENIENDO_EL_NOMBRE_Y_VALOR_DE_OBJETO, e);
 			} 

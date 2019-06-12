@@ -11,6 +11,6 @@ public class ServicioEliminarVehiculo {
     }
 
     public void ejecutar(String placa) {
-        this.repositorioVehiculo.eliminar(placa);
+        this.repositorioVehiculo.eliminarVehiculo(placa);
     }
 }

@@ -24,7 +24,12 @@ public class ComandoVehiculoTestDataBuilder {
     	return this;
     }
     
+    public ComandoVehiculoTestDataBuilder conPlaca(String placa) {
+    	this.placa = placa;
+    	return this;
+    }
+    
     public ComandoVehiculo build() {
-    	return new ComandoVehiculo(placa,tipo,cilindraje,modelo,marca);
+    	return new ComandoVehiculo(placa,placa,tipo,cilindraje,modelo,marca);
     }
 }

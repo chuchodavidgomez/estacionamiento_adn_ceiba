@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ComandoVehiculo{
 	private String placa;
+	private String placaKey;
 	private String tipo; 
 	private int cilindraje;
 	private String modelo;

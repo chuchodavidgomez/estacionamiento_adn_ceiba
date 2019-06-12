@@ -51,7 +51,7 @@ public class ComandoControladorVehiculo {
 	@PutMapping(value="/actualizar/{placa}")
 	@ApiOperation("Actualizar vehiculo")
 	public void actualizar(@RequestBody ComandoVehiculo comandoVehiculo,@PathVariable String placa) {
-		comandoVehiculo.setPlaca(placa);
+		comandoVehiculo.setPlacaKey(placa);		
 		manejadorActualizarVehiculo.ejecutar(comandoVehiculo);
 	}
 }

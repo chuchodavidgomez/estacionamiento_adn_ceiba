@@ -33,11 +33,11 @@ public class ServicioActualizarHistorial {
     		fechaSalida = LocalDateTime.now(); 
     	}    	   	
     	Double pago = calcularPago(historial.getFechaIngreso(),fechaSalida,historial.getPlaca()); 
-        return this.repositorioHistorial.actualizar(new Historial(historial.getId(),historial.getPlaca(),historial.getFechaIngreso(),fechaSalida,pago));
+        return this.repositorioHistorial.actualizarHistorial(new Historial(historial.getId(),historial.getPlaca(),historial.getFechaIngreso(),fechaSalida,pago));
     }
     
     private void validarExistencia(Long id) {
-		boolean existe = this.repositorioHistorial.existe(id);
+		boolean existe = this.repositorioHistorial.existeHistorial(id);
     	if(!existe) {
     		throw new ExcepcionNoExistencia(NO_EXISTE_UN_REGISTRO_CON_ESE_ID);
     	}

@@ -14,10 +14,12 @@ public class ServicioActualizarHistorialTest {
 	@Test
 	public void obtenerHorasTranscurridas24HorasTest() {
 		//arrange
+		LocalDateTime fechaInicial = LocalDateTime.now();
+		LocalDateTime fechaSalida = LocalDateTime.now().plusDays(1);
     	RepositorioHistorial repositorioHistorial = Mockito.mock(RepositorioHistorial.class);
 		ServicioActualizarHistorial servicioActualizarHistorial = new ServicioActualizarHistorial(repositorioHistorial);
 		//act
-		int horas = servicioActualizarHistorial.obtenerHorasTrascurridas(LocalDateTime.now(), LocalDateTime.now().plusDays(1) );
+		int horas = servicioActualizarHistorial.obtenerHorasTrascurridas(fechaInicial, fechaSalida);
 		
 		//assert
 		assertEquals(horas,24);		
